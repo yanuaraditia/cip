@@ -1,0 +1,287 @@
+html, body {
+    margin: 0;
+    font-family: "Archivo",sans-serif;
+}
+a {
+    outline:none;
+}
+.button {
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(0, 0, 0, .05);
+    font-family: "Archivo",sans-serif;
+    font-weight: 500;
+}
+.button.is-primary {
+    background: #f9a602;
+}
+.button.is-primary:hover {
+    background: #f9a602;
+    opacity: .6;
+}
+.input, .select select, .textarea {
+    background: #fff;
+    box-shadow: none;
+}
+.input {
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 10px;
+    padding: 15px;
+    font-family: "Archivo", sans-serif;
+    display: block;
+    height: 48px;
+    font-size: 16px;
+    line-height: 16px;
+}
+.control.has-icons-left .icon, .control.has-icons-right .icon {
+    top: 5px;
+    right: 5px!important;
+}
+.checkbox {
+    z-index: 0;
+    position: relative;
+    display: inline-block;
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+    font-family: var("Archivo", "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Input */
+.checkbox > input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    z-index: -1;
+    position: absolute;
+    left: -10px;
+    top: -8px;
+    display: block;
+    margin: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    box-shadow: none;
+    outline: none;
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+/* Span */
+.checkbox > span {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Box */
+.checkbox > span::before {
+    content: "";
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 3px 11px 3px 1px;
+    border: solid 2px; /* Safari */
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    border-radius: 2px;
+    width: 18px;
+    height: 18px;
+    vertical-align: top;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Checkmark */
+.checkbox > span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 2px;
+    width: 10px;
+    height: 5px;
+    border: solid 2px transparent;
+    border-right: none;
+    border-top: none;
+    transform: translate(3px, 4px) rotate(-45deg);
+}
+
+/* Checked, Indeterminate */
+.checkbox > input:checked,
+.checkbox > input:indeterminate {
+    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+.checkbox > input:checked + span::before,
+.checkbox > input:indeterminate + span::before {
+    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+.checkbox > input:checked + span::after,
+.checkbox > input:indeterminate + span::after {
+    border-color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
+}
+
+.checkbox > input:indeterminate + span::after {
+    border-left: none;
+    transform: translate(4px, 3px);
+}
+
+/* Hover, Focus */
+.checkbox:hover > input {
+    opacity: 0.04;
+}
+
+.checkbox > input:focus {
+    opacity: 0.12;
+}
+
+.checkbox:hover > input:focus {
+    opacity: 0.16;
+}
+
+/* Active */
+.checkbox > input:active {
+    opacity: 1;
+    transform: scale(0);
+    transition: transform 0s, opacity 0s;
+}
+
+.checkbox > input:active + span::before {
+    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+.checkbox > input:checked:active + span::before {
+    border-color: transparent;
+    background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+}
+
+/* Disabled */
+.checkbox > input:disabled {
+    opacity: 0;
+}
+
+.checkbox > input:disabled + span {
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+    cursor: initial;
+}
+
+.checkbox > input:disabled + span::before {
+    border-color: currentColor;
+}
+
+.checkbox > input:checked:disabled + span::before,
+.checkbox > input:indeterminate:disabled + span::before {
+    border-color: transparent;
+    background-color: currentColor;
+}
+
+.search .field {
+    border-radius: 12px;
+    background: #f1f3f4;
+}
+.search .field:hover {
+    background: #fff;
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+}
+.search .field .input {
+    background: transparent;
+    border:none;
+    box-shadow: none;
+    padding: 20px;
+}
+.section .material-icons {
+    vertical-align: middle;
+}
+#navigation {
+    border-bottom: 1px solid rgba(0, 0, 0, .05)
+}
+#navigation .navbar-start {
+    padding: 0;
+}
+#navigation .navbar-start .navbar-item {
+    padding: 0;
+}
+#navigation .navbar-start .navbar-item a {
+    position: relative;
+    padding: 0 20px;
+    display: block;
+    line-height: 52px;
+    font-weight: 600;
+    min-width: 70px;
+    color: #666;
+    text-align: center;
+}
+#navigation .navbar-start .navbar-item a:hover {
+    color: #f9a602;
+}
+#navigation .navbar-start .navbar-item.is-active a {
+    color: #f9a602;
+}
+#navigation .navbar-start .navbar-item.is-active a::after {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    content: "";
+    background: #f9a602;
+    position: absolute;
+    border-radius: 8px 8px 0 0;
+    height: 4px;
+}
+.session {
+    background: #f3f3f3;
+}
+@media screen and (min-width:1024px) {
+    .session {
+        height: 100vh;
+        padding-top: 10rem;
+    }
+    .session .column {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+.session .form {
+    background: #fff;
+    border-radius: 20px;
+    padding: 60px 40px;
+    -webkit-box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
+}
+.session .logo {
+    width: 190px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+.item-list .card {
+    border-radius: 20px;
+    padding: 10px;
+    border:1px solid rgba(0, 0, 0, .05);
+    box-shadow: none;
+}
+.item-list .card:hover, .item-list .card:focus {
+    -webkit-box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
+}
+.item-list .card .card-content {
+    padding: 1.25rem 1rem 0;
+}
+.item-list .card .card-footer {
+    border: none;
+}
+.item-list .card .card-footer-item:not(:last-child){
+    padding-right:0;
+    border:none;
+}
+.item-list .menu-list li {
+    color: #666;
+    padding: 5px 0;
+    font-size: 16px;
+    line-height: 16px;
+}
+.item-list .menu-list .material-icons {
+    transform: translateY(-2px)
+}
