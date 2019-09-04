@@ -6,14 +6,11 @@ $this->load->helper('url');
 <head>
     <meta charset="utf-8" />
     <title>House of Yanuar Aditia – Junior Front End Web Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo:400,500,700&display=swap" rel="stylesheet">
-    <?php
-    $text= "<link rel=\"stylesheet\" href=\"".base_url('asset/style.css')."\"/>";
-    echo $text;
-    $text= "<link rel=\"stylesheet\" href=\"".base_url('asset/ss.css')."\"/>";
-    echo $text;
-    ?>
+
+    <link rel="stylesheet" href="asset/style.css">
 </head>
 <body>

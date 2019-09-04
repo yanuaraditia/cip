@@ -2,18 +2,18 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
     $this->load->helper('url');
 ?>
-    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-    mdc.ripple.MDCRipple.attachTo(document.querySelector('.foo-button'));
-    const listEl = document.querySelector('.mdc-drawer .mdc-list');
-    const mainContentEl = document.querySelector('.main-content');
+    $(document).ready(function() {
 
-    listEl.addEventListener('click', (event) => {
-    drawer.open = false;
+    // Check for click events on the navbar burger icon
+    $(".navbar-burger").click(function() {
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+
     });
-
-    document.body.addEventListener('MDCDrawer:closed', () => {
-    mainContentEl.querySelector('input, button').focus();
     });
     </script>
 </body>

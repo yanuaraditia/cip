@@ -36,12 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo:400,500,700&display=swap" rel="stylesheet">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <?php
-    $text= "<link rel=\"stylesheet\" href=\"".base_url('asset/style.css')."\"/>";
-    echo $text;
-    $text= "<link rel=\"stylesheet\" href=\"".base_url('asset/ss.css')."\"/>";
-    echo $text;
-    ?>
+    <link rel="stylesheet" href="asset/style.css">
 </head>
 <body>
     <section class="section search">
@@ -55,18 +50,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </section>
     <header class="navbar" id="navigation" role="navigation" aria-label="main navigation">
         <div class="container">
-            <ul class="navbar-start">
-                <li class="navbar-item is-active"><a href="#">Cari Parkir</a></li>
-                <li class="navbar-item"><a href="#">Riwayat</a></li>
-                <li class="navbar-item"><a href="#">Transaksi Berhasil</a></li>
-            </ul>
+            <div class="navbar-brand">
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                <ul class="navbar-start">
+                    <li class="navbar-item is-active"><a href="#">Cari Parkir</a></li>
+                    <li class="navbar-item"><a href="#">Riwayat</a></li>
+                    <li class="navbar-item"><a href="#">Transaksi Berhasil</a></li>
+                </ul>
+            </div>
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary" href="<?php echo base_url('/register');?>">
+                        <a class="button is-primary" href="daftar">
                             <strong>Sign up</strong>
                         </a>
-                        <a class="button is-light" href="<?php echo base_url('/login');?>">
+                        <a class="button is-light" href="login">
                             Log in
                         </a>
                     </div>

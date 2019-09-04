@@ -4,6 +4,7 @@ html, body {
 }
 a {
     outline:none;
+    color: #f9a602;
 }
 .button {
     border-radius: 8px;
@@ -33,9 +34,38 @@ a {
     font-size: 16px;
     line-height: 16px;
 }
+.control {
+    position: relative;
+}
+.control .input ~ .label {
+    position: absolute;
+    top: 0;
+    font-weight: 400;
+    font-size: 14px;
+    background: #fff;
+    left: 10px;
+    top: -14px;
+    padding: 2px 5px;
+    color: #f9a602;
+    transition: all .05s ease-in-out;
+}
+.control .input:focus {
+    box-shadow: 0 0 0 1px #f9a602;
+    outline: none;
+    border-color: #f9a602;
+}
+.control .input:not(:focus):placeholder-shown ~ .label {
+    font-size: 16px;
+    top: 10px;
+    left: 15px;
+    color: inherit;
+}
 .control.has-icons-left .icon, .control.has-icons-right .icon {
     top: 5px;
     right: 5px!important;
+}
+.control.has-icons-left .input:focus ~ .icon {
+    color: #f9a602;
 }
 .checkbox {
     z-index: 0;
@@ -220,20 +250,61 @@ a {
 #navigation .navbar-start .navbar-item.is-active a {
     color: #f9a602;
 }
-#navigation .navbar-start .navbar-item.is-active a::after {
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    content: "";
-    background: #f9a602;
-    position: absolute;
-    border-radius: 8px 8px 0 0;
-    height: 4px;
-}
-.session {
-    background: #f3f3f3;
+@media screen and (max-width:1023px) {
+    .navbar-brand, .navbar-tabs {
+        min-height: inherit;
+        transform: translateY(-150px)
+    }
+    .navbar-burger {
+        display: inherit;
+        position: absolute;
+        transform: translateY(80px) translateX(20px);
+        z-index: 40;
+    }
+    .navbar-burger:hover {
+        background: transparent;
+    }
+    .navbar-burger span {
+        height: 2px;
+        border-radius: 10px;
+    }
+    .navbar-burger:hover span {
+        background: #f9a602;
+    }
+    .navbar-end {
+        position: absolute;
+        transform: translateY(-70px)
+    }
+    .navbar-menu.is-active {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        border-radius: 20px;
+        -webkit-box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
+        box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
+    }
+    .navbar-menu.is-active .navbar-start .navbar-item a {        
+        text-align: left!important;
+    }
+    .section.search, .navbar-end .navbar-item {
+        padding: 20px;
+    }
+    .section.search .input {
+        padding-left: 50px;
+    }
 }
 @media screen and (min-width:1024px) {
+    #navigation .navbar-start .navbar-item.is-active a::after {
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        content: "";
+        background: #f9a602;
+        position: absolute;
+        border-radius: 8px 8px 0 0;
+        height: 4px;
+    }
     .session {
         height: 100vh;
         padding-top: 10rem;
@@ -242,13 +313,24 @@ a {
         margin-right: auto;
         margin-left: auto;
     }
+    .session .form {
+        padding: 60px 40px;
+    }
+    .session {
+        background: #f3f3f3;
+        -webkit-box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
+        box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
+    }
+}
+@media screen and (max-width:1023px) {
+    .session {
+        padding: 0
+    }
 }
 .session .form {
     background: #fff;
     border-radius: 20px;
-    padding: 60px 40px;
-    -webkit-box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
-    box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
+    padding: 20px;
 }
 .session .logo {
     width: 190px;
@@ -258,9 +340,19 @@ a {
 }
 .item-list .card {
     border-radius: 20px;
-    padding: 10px;
-    border:1px solid rgba(0, 0, 0, .05);
     box-shadow: none;
+}
+@media screen and (min-width:1024px) {
+    .item-list .card {
+        padding: 10px;
+        border:1px solid rgba(0, 0, 0, .05);
+        box-shadow: none;
+    }
+}
+@media screen and (max-width:1023px) {
+    .item-list {
+        padding: 10px;
+    }
 }
 .item-list .card:hover, .item-list .card:focus {
     -webkit-box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
