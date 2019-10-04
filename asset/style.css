@@ -1,6 +1,6 @@
 html, body {
     margin: 0;
-    font-family: "Archivo",sans-serif;
+    font-family: "Titillium Web",sans-serif;
 }
 a {
     outline:none;
@@ -10,8 +10,8 @@ a {
     border-radius: 8px;
     font-size: 16px;
     background: rgba(0, 0, 0, .05);
-    font-family: "Archivo",sans-serif;
-    font-weight: 500;
+    font-family: "Titillium Web",sans-serif;
+    font-weight: 600;
 }
 .button.is-primary {
     background: #f9a602;
@@ -19,6 +19,9 @@ a {
 .button.is-primary:hover {
     background: #f9a602;
     opacity: .6;
+}
+.button.is-primary.bok, .button.is-primary.bok:hover {
+    background: #8bc34a;
 }
 .input, .select select, .textarea {
     background: #fff;
@@ -28,7 +31,7 @@ a {
     border: 1px solid rgba(0,0,0,.12);
     border-radius: 10px;
     padding: 15px;
-    font-family: "Archivo", sans-serif;
+    font-family: "Titillium Web", sans-serif;
     display: block;
     height: 48px;
     font-size: 16px;
@@ -59,6 +62,8 @@ a {
     top: 10px;
     left: 15px;
     color: inherit;
+    width: calc(100% - 50px);
+    pointer-events: none;
 }
 .control.has-icons-left .icon, .control.has-icons-right .icon {
     top: 5px;
@@ -72,7 +77,7 @@ a {
     position: relative;
     display: inline-block;
     color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
-    font-family: var("Archivo", "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-family: var("Titillium Web", "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
     font-size: 16px;
     line-height: 1.5;
 }
@@ -221,6 +226,7 @@ a {
     border:none;
     box-shadow: none;
     padding: 20px;
+    font-size: 18px;
 }
 .section .material-icons {
     vertical-align: middle;
@@ -290,8 +296,35 @@ a {
     .section.search, .navbar-end .navbar-item {
         padding: 20px;
     }
-    .section.search .input {
+    .section.search:not(.is-fixed-top) .input {
         padding-left: 50px;
+    }
+    #navigation ~ .section {
+        margin-top: 150px;
+    }
+    #navigation {
+        position: fixed;
+        top: 88px;
+        left: 0;
+        right: 0;
+        transition: all .15s ease-in-out;
+    }
+    #navigation .account img {
+        border-radius: 100px;
+        margin-right: 10px;
+    }
+    #navigation.off-canvas {
+        transform: scaleY(0);
+        transform-origin: top left;
+    }
+    .search {
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid rgba(0, 0, 0, .05);
     }
 }
 @media screen and (min-width:1024px) {
@@ -330,10 +363,10 @@ a {
 .session .form {
     background: #fff;
     border-radius: 20px;
-    padding: 20px;
+    padding: 2rem;
 }
 .session .logo {
-    width: 190px;
+    width: 130px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
@@ -341,6 +374,10 @@ a {
 .item-list .card {
     border-radius: 20px;
     box-shadow: none;
+}
+.item-list .card h3.title {
+    max-height: 2.5rem;
+    overflow: hidden;
 }
 @media screen and (min-width:1024px) {
     .item-list .card {
@@ -376,4 +413,62 @@ a {
 }
 .item-list .menu-list .material-icons {
     transform: translateY(-2px)
+}
+
+.lantai .list {
+    box-shadow: none;
+    padding: 0;
+}
+.lantai .list .list-item {
+    padding: 0;
+    margin-bottom: 10px;
+}
+.list-item:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    padding-bottom: 10px!important;
+}
+.lantai .list-slot {
+    padding: 0;
+    display: flex;
+}
+.lantai .list-slot li {
+    float: left;
+}
+.lantai .list-slot li:not(:first-child) {
+    margin-left: 5px;
+}
+.lantai .list-slot li a {
+    padding: 10px 14px;
+    border:2px solid #8bc34a;
+    display: block;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #8bc34a;
+}
+.lantai h5 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.booking-section .button.is-primary.bok {
+    position: absolute;
+    right: 1.5rem;
+}
+
+/* History Session */
+.history .list {
+    box-shadow: none;
+}
+.history .list .list-item {
+    padding: 15px 0;
+}
+.history .list .list-item span:first-child {
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.history .list .list-item span:last-child {
+    border-radius: 5px;
+    float: right;
 }

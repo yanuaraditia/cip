@@ -15,31 +15,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
     <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:image" content="https://yanuar.co/img/thumbnail.png" />
-    <meta name="twitter:site" content="@yanuar_aditia" />
-    <meta name="twitter:creator" content="@yanuar_aditia" />
-    <meta name="twitter:creator" content="@yanuar_aditia" />
-    <meta name="twitter:title" content="House of Yanuar Aditia" />
-    <meta name="twitter:description" content="Yanuar Aditia is a Front-end web Engineer who likes something that lives on the Internet. Interested and focus on native based Web development with the main program language is PHP, and using CSS, HTML, and Javascript to beautify every work." />
     <meta name="theme-color" content="#109d59" />
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="House of Yanuar Aditia – Junior Front End Web Developer">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#109d59">
     <meta name="apple-mobile-web-app-title" content="House of Yanuar Aditia">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <link rel="shortcut icon" href="https://yanuar.co/img/48x48.png" />
-    <link rel="manifest" href="https://yanuar.co/manifest.webmanifest" />
-    <link rel="alternate" href="https://yanuar.co/" hreflang="en-US">
-    <link rel="canonical" href="https://yanuar.co/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Archivo:400,500,700&display=swap" rel="stylesheet">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500|Titillium+Web:400,600,700|Material+Icons&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="asset/style.css">
 </head>
 <body>
-    <section class="section search">
+    <section class="section search" id="search">
         <div class="container">
             <div class="field">
                 <div class="control">
@@ -51,28 +37,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <header class="navbar" id="navigation" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                </a>
+                <?php echo anchor('#','<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>','role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"');?>
             </div>
             <div id="navbarBasicExample" class="navbar-menu">
                 <ul class="navbar-start">
-                    <li class="navbar-item is-active"><a href="#">Cari Parkir</a></li>
-                    <li class="navbar-item"><a href="#">Riwayat</a></li>
-                    <li class="navbar-item"><a href="#">Transaksi Berhasil</a></li>
+                    <?php
+                    $is_active = " is-active";
+                    $vec = array('','','');
+                    switch($bar) {
+                        case 1:
+                            $vec[0] = $is_active;
+                            break;
+                        case 2:
+                            $vec[1] = $is_active;
+                            break;
+                        case 3:
+                            $vec[2] = $is_active;
+                            break;
+                    }
+                    ?>
+                    <li class="navbar-item<?php echo $vec['0'];?>"><?php echo anchor('mainpage','Cari Lokasi');?></li>
+                    <li class="navbar-item<?php echo $vec['1'];?>"><?php echo anchor('riwayat','Riwayat');?></li>
+                    <li class="navbar-item<?php echo $vec['2'];?>"><?php echo anchor('transaksi','Transaksi Sukses');?></li>
                 </ul>
             </div>
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary" href="daftar">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light" href="login">
-                            Log in
-                        </a>
+                        <?php
+                            echo anchor('dashboard','<img src="https://yanuar.co/img/48x48.png"/><strong>Yanuar Aditia</strong>','class="button is-primary account"');
+                            echo anchor('daftar','<strong>Registrasi</strong>','class="button is-primary"');
+                            echo anchor('login','<strong>Masuk</strong>','class="button is-light"');
+                        ?>
                     </div>
                 </div>
             </div>
