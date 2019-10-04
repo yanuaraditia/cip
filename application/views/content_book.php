@@ -15,7 +15,7 @@ $this->load->helper('url');
                         $lgtd_lokasi = $detail['lgtd_lokasi'];
                     endforeach;
                     echo $nama_lokasi;
-                    echo anchor('https://www.google.com/maps?q='.$lttd_lokasi.','.$lgtd_lokasi,'<i class="material-icons">directions</i> 6.5 Km','class="button is-primary bok is-light"');?>
+                    echo anchor('https://www.google.com/maps?q='.$lttd_lokasi.','.$lgtd_lokasi,'<i class="material-icons">directions</i> 6.5 Km','class="button is-primary bok is-light" target="_blank"');?>
                 </h3>
                 <h5 class="subtitle is-5"><?php echo $alamat_lokasi;?></h5>
                 <div class="lantai">
@@ -24,7 +24,7 @@ $this->load->helper('url');
                         foreach($list_lantai->result_array() as $data) {
                         ?>
                         <li class="list-item">
-                            <h5><?php echo $data['nama_lantai'];?></h5>
+                            <h5><?php echo $data['nama_lantai'];?> (<small>Rp. <?php echo $data['tarif_lantai'];?></small>)</h5>
                             <ul class="list-slot">
                                 <?php
                                 $dat = $this->db->query('SELECT * FROM slot WHERE kd_lantai = '.$data['kd_lantai']);
@@ -41,3 +41,6 @@ $this->load->helper('url');
         </div>
     </div>
 </section>
+<script>
+    $(document).title = <?php echo $nama_lokasi;?>;
+</script>

@@ -32,7 +32,11 @@ function getDistance($latitude1, $longitude1, $latitude2, $longitude2, $unit = '
                         <div class="detail">
                             <ul class="menu-list">
                                 <li><i class="material-icons">directions_car</i> Kosong : 20</li>
-                                <li><i class="material-icons">monetization_on</i> Tarif : Rp 20.000 - Rp 30.000</li>
+                                <?php
+                                $range = $this->db->query('SELECT min(tarif_lantai) as min, max(tarif_lantai) as max FROM lantai WHERE kd_lokasi='.$data['kd_lokasi']);
+                                $range = $range->row_array();
+                                ?>
+                                <li><i class="material-icons">monetization_on</i> Tarif : Rp. <?php echo $range['min'];?> - Rp <?php echo $range['max'];?></li>
                             </ul>
                         </div>
                     </div>

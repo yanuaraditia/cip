@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>House of Yanuar Aditia – Junior Front End Web Developer</title>
+    <title>Paparkir : Kemudahan parkir dalam genggaman</title>
     <meta name="description" content="Yanuar Aditia is a Front-end web Engineer who likes something that lives on the Internet. Interested and focus on native based Web development with the main program language is PHP, and using CSS, HTML, and Javascript to beautify every work." />
     <meta name="image" content="https://yanuar.co/img/thumbnail.png" />
     <meta property="og:site_name" content="House of Yanuar Aditia – Junior Front End Web Developer">

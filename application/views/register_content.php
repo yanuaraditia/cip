@@ -44,7 +44,7 @@ $this->load->helper('url');
                             <div class="control">
                                 <label class="checkbox">
                                     <input type="checkbox">
-                                    <span>Saya menyetujui <a href="#">syarat dan ketentuan</a></span>
+                                    <span>Saya menyetujui <a href="privacy">kebijakan privasi</a></span>
                                 </label>
                             </div>
                             </div>

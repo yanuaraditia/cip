@@ -309,10 +309,6 @@ a {
         right: 0;
         transition: all .15s ease-in-out;
     }
-    #navigation .account img {
-        border-radius: 100px;
-        margin-right: 10px;
-    }
     #navigation.off-canvas {
         transform: scaleY(0);
         transform-origin: top left;
@@ -350,6 +346,11 @@ a {
         padding: 60px 40px;
     }
 }
+#navigation .account img {
+    border-radius: 100px;
+    margin-right: 10px;
+}
+
 @media screen and (max-width:1023px) {
     .session {
         padding: 0
