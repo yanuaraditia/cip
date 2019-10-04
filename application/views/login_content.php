@@ -12,9 +12,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <hr>
                         <div class="field">
-                            <div class="control control has-icons-right">
-                                <input class="input" type="e-mail" placeholder=" " id="textdex">
+                            <div class="control has-icons-right">
+                                <input class="input" type="e-mail" placeholder="seseorang@contoh.com" id="textdex">
                                 <label class="label">Email</label>
+                                <span class="icon is-right"><i class="material-icons">mail_outline</i></span>
                             </div>
                             <p class="help is-danger">This email is invalid</p>
                         </div>

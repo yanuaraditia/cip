@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?> 
     <label id="location"></label>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script>
     $(document).ready(function() {
 
