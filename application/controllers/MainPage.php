@@ -13,6 +13,7 @@ class MainPage extends CI_Controller {
 			'list_lokasi'=>$this->m_lokasi->list_lokasi(),
 			'bar'=>1
 		);
+		$this->load->view('link_rel');
 		$this->load->view('header',$data);
 		$this->load->view('content');
         $this->load->view('footer');

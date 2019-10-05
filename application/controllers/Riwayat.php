@@ -11,6 +11,7 @@ class Riwayat extends CI_Controller {
 	public function index()
 	{
 		$data['bar'] = 2;
+		$this->load->view('link_rel');
 		$this->load->view('header',$data);
 		$this->load->view('content_riwayat');
         $this->load->view('footer');

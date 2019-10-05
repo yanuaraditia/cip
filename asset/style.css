@@ -486,3 +486,9 @@ a {
     border-radius: 5px;
     float: right;
 }
+.dashboard .card {
+    box-shadow: none;
+    border-radius: 20px;
+    border:1px solid rgba(0, 0, 0, .1);
+    padding: 3rem;
+}

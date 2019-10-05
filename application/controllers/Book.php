@@ -20,6 +20,7 @@ class Book extends CI_Controller {
 				'bar'=>1,
 				'detail_lokasi'=>$this->m_book->detail_lokasi()
 			);
+			$this->load->view('link_rel');
 			$this->load->view('header',$data);
 			$this->load->view('content_book');
 			$this->load->view('footer');
