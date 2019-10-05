@@ -10,7 +10,6 @@ $this->load->helper('url');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500|Titillium+Web:400,600,700|Material+Icons&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="asset/style.css">
 </head>
 <body>

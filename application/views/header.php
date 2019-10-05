@@ -20,7 +20,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="apple-mobile-web-app-title" content="House of Yanuar Aditia">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500|Titillium+Web:400,600,700|Material+Icons&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="asset/style.css">
 </head>
@@ -30,6 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="field">
                 <div class="control">
                     <input class="input is-large" type="text" placeholder="Cari lokasi parkir">
+                    <button class="button"><i class="material-icons">search_outline</i></button>
                 </div>
             </div>
         </div>
@@ -51,14 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         case 2:
                             $vec[1] = $is_active;
                             break;
-                        case 3:
-                            $vec[2] = $is_active;
-                            break;
                     }
                     ?>
                     <li class="navbar-item<?php echo $vec['0'];?>"><?php echo anchor('mainpage','Cari Lokasi');?></li>
-                    <li class="navbar-item<?php echo $vec['1'];?>"><?php echo anchor('riwayat','Riwayat');?></li>
-                    <li class="navbar-item<?php echo $vec['2'];?>"><?php echo anchor('transaksi','Transaksi Sukses');?></li>
+                    <li class="navbar-item<?php echo $vec['1'];?>"><?php echo anchor('riwayat','Riwayat Transaksi');?></li>
                 </ul>
             </div>
             <div class="navbar-end">

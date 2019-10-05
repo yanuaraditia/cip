@@ -15,7 +15,16 @@ $this->load->helper('url');
                         $lgtd_lokasi = $detail['lgtd_lokasi'];
                     endforeach;
                     echo $nama_lokasi;
-                    echo anchor('https://www.google.com/maps?q='.$lttd_lokasi.','.$lgtd_lokasi,'<i class="material-icons">directions</i> 6.5 Km','class="button is-primary bok is-light" target="_blank"');?>
+                    if(isset($_COOKIE['latt'])&&isset($_COOKIE['long'])) {
+                        $km = getDistance($_COOKIE['latt'],$_COOKIE['long'],$lttd_lokasi,$lgtd_lokasi,'Km');
+                        $jarak = "<i class=\"material-icons\"></i>".$km." km";
+                        echo anchor('https://maps.google.com/maps?q=-7.7900392,110.3654116',$jarak,'class="button is-primary bok is-light" target="_blank"');
+                    }
+                    else {
+                        $jarak = "<i class=\"material-icons\"></i> Arah";
+                        echo anchor('https://www.google.com/maps?q='.$lttd_lokasi.','.$lgtd_lokasi,$jarak,'class="button is-primary bok is-light" target="_blank"');
+                    }
+                ?>
                 </h3>
                 <h5 class="subtitle is-5"><?php echo $alamat_lokasi;?></h5>
                 <div class="lantai">
@@ -24,7 +33,7 @@ $this->load->helper('url');
                         foreach($list_lantai->result_array() as $data) {
                         ?>
                         <li class="list-item">
-                            <h5><?php echo $data['nama_lantai'];?> (<small>Rp. <?php echo $data['tarif_lantai'];?></small>)</h5>
+                            <h5><?php echo $data['nama_lantai'];?> (<small>Rp. <?php echo number_format($data['tarif_lantai']);?></small>)</h5>
                             <ul class="list-slot">
                                 <?php
                                 $dat = $this->db->query('SELECT * FROM slot WHERE kd_lantai = '.$data['kd_lantai']);
