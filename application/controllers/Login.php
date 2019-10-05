@@ -1,41 +1,47 @@
 <?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
-class Login extends CI_Controller {
+
+class Login extends CI_Controller{
+
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('m_login');
- 
+
 	}
-    public function index()
-    {
-        $this->load->view('session_header');
-        $this->load->view('login_content');
-        $this->load->view('session_footer');
-    }
+
+	function index(){
+		$this->load->view('session_header');
+		$this->load->view('login_content');
+		$this->load->view('session_footer');
+	}
+
 	function aksi_login(){
-		$username = $this->input->post('username');
+		$email_user = $this->input->post('email');
 		$password = $this->input->post('password');
 		$where = array(
-			'username' => $username,
+			'email_user' => $email_user,
 			'password' => md5($password)
 			);
-		$cek = $this->m_login->cek_login("admin",$where)->num_rows();
-		if($cek > 0){
- 
+		$cek = $this->m_login->m_cek_mail()->row();
+		if(hash_verified($this->input->post('password'),$cek->password)){
 			$data_session = array(
-				'nama' => $username,
+				'id_user' => $id_user,
+				'email_user' => $email_user,
 				'status' => "login"
 				);
- 
+
 			$this->session->set_userdata($data_session);
- 
-			redirect(base_url("admin"));
- 
+
+			redirect(base_url("dashboard"));
+
 		}else{
-			echo "Username dan password salah !";
+			$data['vew'] = '../asset/style.css';
+			$this->load->view('session_header',$data);
+			$data['error'] = 'Username atau password salah';
+			$this->load->view('login_content',$data);
+			$this->load->view('session_footer');
 		}
 	}
- 
+
 	function logout(){
 		$this->session->sess_destroy();
 		redirect(base_url('login'));

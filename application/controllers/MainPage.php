@@ -2,11 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MainPage extends CI_Controller {
-    function __construct(){
+	function __construct(){
         parent::__construct();
         $this->load->model('m_lokasi');
 		$this->load->helper('location');
-
     }
 	public function index()
 	{

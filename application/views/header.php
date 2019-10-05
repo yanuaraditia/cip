@@ -61,9 +61,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="navbar-item">
                     <div class="buttons">
                         <?php
-                            echo anchor('dashboard','<img src="https://yanuar.co/img/48x48.png"/><strong>Yanuar Aditia</strong>','class="button is-primary account"');
-                            echo anchor('daftar','<strong>Registrasi</strong>','class="button is-primary"');
-                            echo anchor('login','<strong>Masuk</strong>','class="button is-light"');
+                            if($this->session->userdata('status') == "login") {
+                                echo anchor('dashboard',"<img src=\"https://yanuar.co/img/48x48.png\"/><strong>".$this->session->userdata('email_user')."</strong>",'class="button is-primary account"');
+                            }
+                            else {
+                                echo anchor('daftar','<strong>Registrasi</strong>','class="button is-primary"');
+                                echo anchor('login','<strong>Masuk</strong>','class="button is-light"');
+                            }
                         ?>
                     </div>
                 </div>
