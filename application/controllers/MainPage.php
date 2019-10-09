@@ -18,4 +18,18 @@ class MainPage extends CI_Controller {
 		$this->load->view('content');
         $this->load->view('footer');
 	}
+	function cari()
+	{
+		if(isset($_GET['q'])) {
+			$data = array(
+				'bar' => 1,
+				'list_lokasi'=>$this->m_lokasi->cari_lokasi($_GET['q']),
+				'vew' => '../asset/style.css'
+			);
+			$this->load->view('link_rel',$data);
+			$this->load->view('header');
+			$this->load->view('content');
+			$this->load->view('footer');
+		}
+	}
 }

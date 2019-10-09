@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <h1 class="title is-4">Masuk paparkir</h1>
                             <?php
                             if(isset($error)) {
-                                echo '<p class="help is-danger">This username is available</p>';
+                                echo "<p class=\"help is-danger\">$error</p>";
                             }
                             ?>
                         </div>

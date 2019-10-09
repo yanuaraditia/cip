@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <section class="section search" id="search">
         <div class="container">
-            <div class="field">
+            <form method="get" action="<?php echo base_url()."mainpage/cari";?>" class="field">
                 <div class="control">
-                    <input class="input is-large" type="text" placeholder="Cari lokasi parkir">
+                    <input class="input is-large" type="text" name="q" placeholder="Cari lokasi parkir">
                     <button class="button"><i class="material-icons">search_outline</i></button>
                 </div>
             </div>
@@ -42,6 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php
                             if($this->session->userdata('status') == "login") {
                                 echo anchor('dashboard',"<strong>".$this->session->userdata('email_user')."</strong>",'class="button is-primary account"');
+                                echo anchor('login/logout',"<strong><i class=\"material-icons\">power_settings_new</i></strong>",'class="button is-light account"');
                             }
                             else {
                                 echo anchor('daftar','<strong>Registrasi</strong>','class="button is-primary"');

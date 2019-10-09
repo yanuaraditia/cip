@@ -7,11 +7,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="card">
                     <?php
                     foreach($profile->result_array() as $dashboard) {
+                        echo anchor('mainpage','<i class="material-icons">arrow_back</i>','class="button fab"');
                     ?>
-                    <a class="button fab" href="mainpage"><i class="material-icons">arrow_back</i></a><label>Dashboard : <?php echo $dashboard['nama_user'];?></label>
+                    <label>Dashboard : <?php echo $dashboard['nama_user'];?></label>
                     <div class="account-btn">
-                        <a class="button is-primary account"><strong><?php echo $this->session->userdata("email_user"); ?></strong></a>
-                        <a href="login/logout" class="button is-light"><i class="material-icons">power_settings_new</i></a>
+                        <?php
+                        echo anchor('dashboard',"<strong>".$this->session->userdata("email_user")."</strong>", 'class="button is-primary account"');
+                        echo anchor('login/logout','<i class="material-icons">power_settings_new</i>', 'class="button is-light"');
+                        ?>
                     </div>
                     <hr>
                     <ul class="list book">

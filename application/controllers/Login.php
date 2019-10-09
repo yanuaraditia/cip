@@ -19,22 +19,32 @@ class Login extends CI_Controller{
 			'password' => md5($password)
 			);
 		$cek = $this->m_login->m_cek_mail()->row();
-		if(hash_verified($this->input->post('password'),$cek->password)){
-			$data_session = array(
-				'id_user' => $id_user,
-				'email_user' => $email_user,
-				'status' => "login"
+		if($this->m_login->m_cek_mail()->num_rows()==1) {
+			if(hash_verified($this->input->post('password'),$cek->password) && !empty($cek->password)){
+				$data_session = array(
+					'id_user' => $id_user,
+					'email_user' => $email_user,
+					'status' => "login"
+					);
+				$this->session->set_userdata($data_session);
+				redirect(base_url("dashboard"));
+			}else{
+				$data = array(
+					'vew' => '../asset/style.css',
+					'error' => 'Username atau password salah'
 				);
-
-			$this->session->set_userdata($data_session);
-
-			redirect(base_url("dashboard"));
-
-		}else{
-			$data['vew'] = '../asset/style.css';
+				$this->load->view('session_header',$data);
+				$this->load->view('login_content');
+				$this->load->view('session_footer');
+			}
+		}
+		else {
+			$data = array(
+				'vew' => '../asset/style.css',
+				'error' => 'Username atau password salah'
+			);
 			$this->load->view('session_header',$data);
-			$data['error'] = 'Username atau password salah';
-			$this->load->view('login_content',$data);
+			$this->load->view('login_content');
 			$this->load->view('session_footer');
 		}
 	}
