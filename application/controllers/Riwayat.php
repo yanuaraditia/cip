@@ -9,7 +9,6 @@ class Riwayat extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['bar'] = 2;
 		$data = array(
 			'bar' => 2,
 			'riwayat' => $this->m_history->show_history()
