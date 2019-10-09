@@ -2,11 +2,16 @@
 
 class m_book extends CI_Model{
       function list_lantai(){
-            $lantai=$this->db->query("SELECT * FROM lantai WHERE kd_lokasi = ".base64_decode($_GET['id']));
+            $id = base64_decode($this->input->get('id'));
+            $lantai=$this->db->get_where('lantai',array('kd_lokasi'=>$id));
             return $lantai;
       }
       function detail_lokasi() {
-            $lokasi=$this->db->query("SELECT * FROM lokasi WHERE kd_lokasi = ".base64_decode($_GET['id']));
-            return $lokasi;
+            $id = base64_decode($this->input->get('id'));
+            $detail = $this->db->get_where('lokasi',array('kd_lokasi'=>$id));
+            return $detail;
+      }
+      function book_location() {
+
       }
 }

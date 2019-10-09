@@ -38,7 +38,7 @@ $this->load->helper('url');
                                 <?php
                                 $dat = $this->db->query('SELECT * FROM slot WHERE kd_lantai = '.$data['kd_lantai']);
                                 foreach($dat->result_array() as $slot) {
-                                    echo "<li>".anchor('confirm?kd='.$slot['kd_slot'],$slot['nama_slot'])."</li>";
+                                    echo "<li>".anchor('book/confirm?kd='.$slot['kd_slot'],$slot['nama_slot'])."</li>";
                                 }
                                 ?>
                             </ul>

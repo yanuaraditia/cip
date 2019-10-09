@@ -55,7 +55,7 @@ $this->load->helper('url');
             <?php }?>
         </div>
         <asside class="paging">
-            <nav class="pagination" role="navigation" aria-label="pagination">
+            <nav class="pagination is-rounded is-medium" role="navigation" aria-label="pagination">
             <ul class="pagination-list">
                 <?php
                 for($i=1;$i<=$jml_lokasi;$i++)
