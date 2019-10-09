@@ -18,14 +18,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <hr>
                         <div class="field">
                             <div class="control has-icons-right">
-                                <input class="input" type="email" name="email" placeholder="seseorang@contoh.com" id="textdex">
+                                <input class="input" type="email" name="email" placeholder="seseorang@contoh.com" id="textdex" required>
                                 <label class="label">Email</label>
                                 <span class="icon is-right"><i class="material-icons">mail_outline</i></span>
                             </div>
                         </div>
                         <div class="field">
                             <div class="control has-icons-right">
-                                <input class="input" type="password" name="password" placeholder="Password">
+                                <input class="input" type="password" name="password" placeholder="Password" required>
                                 <label class="label">Password</label>
                                 <span class="icon is-right"><i class="material-icons">lock_open</i></span>
                             </div>

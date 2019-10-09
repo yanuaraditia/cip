@@ -13,6 +13,12 @@ a {
     font-family: "Titillium Web",sans-serif;
     font-weight: 600;
 }
+.button.fab {
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+}
 .button.is-primary {
     background: #f9a602;
 }
@@ -491,4 +497,37 @@ a {
     border-radius: 20px;
     border:1px solid rgba(0, 0, 0, .1);
     padding: 3rem;
+}
+.dashboard label {
+    margin-left: 10px;
+    transform: translateY(10px);
+    font-size: 24px;
+}
+.dashboard .title.is-4 span {
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 5px 15px;
+    margin-right: 5px;
+    border:1px solid rgba(0, 0, 0, .1);
+}
+.dashboard .account-btn {
+    float: right;
+}
+.list.book, .list.history {
+    box-shadow: none;
+    border-radius: 12px;
+    border:1px solid rgba(0, 0, 0, .1);
+}
+.list.book .material-icons, .list.history .material-icons {
+    transform: translateY(-1px);
+    margin-right: 10px
+}
+.list.book .list-item:first-child {
+    font-size: 20px;
+}
+
+.list.history .list-item span:not(:last-child) {
+    margin-right: 10px;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    padding-right: 10px;
 }

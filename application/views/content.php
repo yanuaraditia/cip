@@ -20,7 +20,7 @@ $this->load->helper('url');
                                 $slot = $this->db->query("SELECT slot.kd_slot FROM slot JOIN lantai ON slot.kd_lantai = lantai.kd_lantai JOIN lokasi on lantai.kd_lokasi = lokasi.kd_lokasi LEFT JOIN booking ON slot.kd_slot = booking.kd_slot WHERE lokasi.kd_lokasi = ".$data['kd_lokasi']." AND booking.kd_slot IS NULL OR lokasi.kd_lokasi = ".$data['kd_lokasi']." AND booking.kd_slot = 2");
                                 $kosong  = $slot->num_rows();                                
                                 ?>
-                                <li><i class="material-icons">directions_car</i> Slot Kosong : <?php echo $kosong;?></li>
+                                <li><i class="material-icons">directions_car</i> Slot Tersedia : <?php echo $kosong;?></li>
                                 <?php
                                 $range = $this->db->query('SELECT min(tarif_lantai) as min, max(tarif_lantai) as max FROM lantai WHERE kd_lokasi='.$data['kd_lokasi']);
                                 $range = $range->row_array();

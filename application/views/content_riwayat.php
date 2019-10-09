@@ -8,9 +8,19 @@ $this->load->helper('url');
             <div class="card-content">
                 <h3 class="title">Riwayat Order</h3>
                 <ul class="list">
-                    <li class="list-item"><span>#032334</span><span>Abu Bakar Ali</span><span>20/10/2020</span></li>
-                    <li class="list-item"><span>#032334</span><span>Abu Bakar Ali</span><span>20/10/2020</span></li>
-                    <li class="list-item"><span>#032334</span><span>Abu Bakar Ali</span><span>20/10/2020</span></li>
+                    <?php
+                    $row = $riwayat->row();
+                    if(isset($row)) {
+                        foreach($riwayat->result_array() as $data) {
+                    ?>
+                        <li class="list-item"><span>#<?php echo $data['kd_transaksi'];?></span><span>Abu Bakar Ali</span><span><?php echo tglIndo($data['tanggal_bayar']);?></span></li>
+                    <?php
+                        }
+                    }
+                    else {
+                        echo "<h3 class=\"title is-3\">Belum ada transaksi</h3>";
+                    }
+                    ?>
                 </ul>
             </div>
         </div>

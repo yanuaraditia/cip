@@ -10,8 +10,8 @@ class MainPage extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-			'list_lokasi'=>$this->m_lokasi->list_lokasi(),
-			'bar'=>1
+			'bar' => 1,
+			'list_lokasi'=>$this->m_lokasi->list_lokasi()
 		);
 		$this->load->view('link_rel');
 		$this->load->view('header',$data);
