@@ -9,11 +9,11 @@ class MainPage extends CI_Controller {
     }
 	public function index()
 	{
-		$batas = 5;
 		$data = array(
 			'bar' => 1,
 			'list_lokasi'=>$this->m_lokasi->list_lokasi($batas),
-			'jml_lokasi'=>$this->m_lokasi->jml_lokasi($batas)
+			'jml_lokasi'=>$this->m_lokasi->jml_lokasi($batas),
+			'batas'=>5
 		);
 		$this->load->view('link_rel');
 		$this->load->view('header',$data);

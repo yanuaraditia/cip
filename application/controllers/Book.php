@@ -14,7 +14,7 @@ class Book extends CI_Controller {
 	}
 	public function index()
 	{
-		if(isset($_GET['id'])) {
+		if($this->input->get('id')) {
 			$data = array(
 				'list_lantai'=>$this->m_book->list_lantai(),
 				'bar'=>1,
