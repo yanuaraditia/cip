@@ -27,7 +27,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             $status = $row->status;
                             if(isset($status)) {
                                 if($status==0) {
-                                    echo "<li class=\"list-item yellow\">Menunggu check-in</li>";
+                                    echo "<li class=\"list-item yellow\">".anchor('dashboard','loading','class="button is-primary fab is-loading"')." <label>Silahkan lakukan checkin di petugas parkir<label></li>";
+                                    echo "<li class=\"list-item green\">";
+                                    echo anchor("https://www.google.com/maps?q=".$row->lttd_lokasi.",".$row->lgtd_lokasi."","<i class=\"material-icons\">near_me</i>".$row->nama_lokasi,'target="blank_"');
+                                    echo "</li>";
                                 }
                                 elseif($status==1) {
                                     echo "<li class=\"list-item green\">".$row->nama_lokasi."</li>";

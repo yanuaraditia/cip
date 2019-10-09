@@ -4,7 +4,7 @@ class M_login extends CI_Model{
 		return $this->db->get_where($table,$where);
 	}	
     public function m_cek_mail() {
-		return $this->db->get_where('akun',array('email_user' => $this->input->post('email')));
+		return $this->db->get_where('akun',array('email_user' => $this->input->post('email')),1);
 	}
     public function m_cek_nopol() {
 		return $this->db->get_where('akun',array('nopol_user' => $this->input->post('nopol')));

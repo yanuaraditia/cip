@@ -29,4 +29,22 @@ class Book extends CI_Controller {
 			header('location:mainpage');
 		}
 	}
+	function confirm()
+	{
+		if($this->input->get('kd')) {
+			$this->load->model('m_dash');
+			$id_user = $this->m_dash->show_me($this->session->userdata('email_user'))->result_array();
+			foreach($id_user as $doit) {
+				$id_user = $doit['id_user'];
+			}
+			$data = array(
+				'kd_slot' => base64_decode($this->input->get('kd')),
+				'tgl_booking' => date('Y-m-d'),
+				'status' => 0,
+				'id_user' => $id_user
+			);
+			$this->m_book->book_confirm($data);
+			redirect(base_url()."dashboard");
+		}
+	}
 }

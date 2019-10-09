@@ -40,11 +40,11 @@ $this->load->helper('url');
                             <?php
                             if(isset($_COOKIE['latt'])&&isset($_COOKIE['long'])) {
                                 $km = getDistance($_COOKIE['latt'],$_COOKIE['long'],$data['lttd_lokasi'],$data['lgtd_lokasi'],'Km');
-                                $jarak = "<i class=\"material-icons\"></i>".$km." km";
+                                $jarak = "<i class=\"material-icons\">near_me</i>".$km." km";
                                 echo anchor('https://maps.google.com/maps?q=-7.7900392,110.3654116',$jarak,'class="button is-light is-medium is-fullwidth"');
                             }
                             else {
-                                $jarak = "<i class=\"material-icons\"></i> Arah";
+                                $jarak = "<i class=\"material-icons\">near_me</i> Arah";
                                 echo anchor('https://www.google.com/maps?q='.$data['lttd_lokasi'].','.$data['lgtd_lokasi'],$jarak,'class="button is-light is-medium is-fullwidth"');
                             }
                             ?>

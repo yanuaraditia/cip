@@ -14,11 +14,7 @@ class Login extends CI_Controller{
 	function aksi_login(){
 		$email_user = $this->input->post('email');
 		$password = $this->input->post('password');
-		$where = array(
-			'email_user' => $email_user,
-			'password' => md5($password)
-			);
-		$cek = $this->m_login->m_cek_mail()->row();
+		$cek = $this->m_login->m_cek_mail()->row(1);
 		if($this->m_login->m_cek_mail()->num_rows()==1) {
 			if(hash_verified($this->input->post('password'),$cek->password) && !empty($cek->password)){
 				$data_session = array(

@@ -17,11 +17,11 @@ $this->load->helper('url');
                     echo $nama_lokasi;
                     if(isset($_COOKIE['latt'])&&isset($_COOKIE['long'])) {
                         $km = getDistance($_COOKIE['latt'],$_COOKIE['long'],$lttd_lokasi,$lgtd_lokasi,'Km');
-                        $jarak = "<i class=\"material-icons\"></i>".$km." km";
-                        echo anchor('https://maps.google.com/maps?q=-7.7900392,110.3654116',$jarak,'class="button is-primary bok is-light" target="_blank"');
+                        $jarak = "<i class=\"material-icons\">near_me</i>".$km." km";
+                        echo anchor('https://maps.google.com/maps?q='.$detail['lttd_lokasi'].','.$detail['lgtd_lokasi'],$jarak,'class="button is-primary bok is-light" target="_blank"');
                     }
                     else {
-                        $jarak = "<i class=\"material-icons\"></i> Arah";
+                        $jarak = "<i class=\"material-icons\">near_me</i> Arah";
                         echo anchor('https://www.google.com/maps?q='.$lttd_lokasi.','.$lgtd_lokasi,$jarak,'class="button is-primary bok is-light" target="_blank"');
                     }
                 ?>
@@ -38,7 +38,7 @@ $this->load->helper('url');
                                 <?php
                                 $dat = $this->db->query('SELECT * FROM slot WHERE kd_lantai = '.$data['kd_lantai']);
                                 foreach($dat->result_array() as $slot) {
-                                    echo "<li>".anchor('book/confirm?kd='.$slot['kd_slot'],$slot['nama_slot'])."</li>";
+                                    echo "<li>".anchor('book/confirm?kd='.base64_encode($slot['kd_slot']),$slot['nama_slot'])."</li>";
                                 }
                                 ?>
                             </ul>

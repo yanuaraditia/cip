@@ -11,7 +11,7 @@ class m_book extends CI_Model{
             $detail = $this->db->get_where('lokasi',array('kd_lokasi'=>$id));
             return $detail;
       }
-      function book_location() {
-
+      function book_confirm($data) {
+            $this->db->insert('booking',$data);
       }
 }
