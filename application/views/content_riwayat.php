@@ -6,14 +6,18 @@ $this->load->helper('url');
     <div class="container">
         <div class="card">
             <div class="card-content">
-                <h3 class="title">Riwayat Order</h3>
+                <h3 class="title">Riwayat Transaksi</h3>
                 <ul class="list">
                     <?php
                     $row = $riwayat->row();
                     if(isset($row)) {
                         foreach($riwayat->result_array() as $data) {
                     ?>
-                        <li class="list-item"><span>#<?php echo $data['kd_transaksi'];?></span><span>Abu Bakar Ali</span><span><?php echo tglIndo($data['tanggal_bayar']);?></span></li>
+                        <li class="list-item">
+                            <span>#<?php echo $data['kd_transaksi'];?></span>
+                            <span>Rp. <?php echo $data['total_bayar'];?></span>
+                            <span><?php echo tglIndo($data['tanggal_bayar']);?></span>
+                        </li>
                     <?php
                         }
                     }

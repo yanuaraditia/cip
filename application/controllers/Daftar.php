@@ -29,11 +29,11 @@ class Daftar extends CI_Controller {
         $nopol				= $this->input->post('nopol');
         $notelp				= $this->input->post('notelp');
         $data               = array(
-            'nama_user' => $nama_user,
-            'email_user' => $email_user,
-            'nopol_user' => $nopol,
-            'password' => $password_user,
-            'notelp_user' => $notelp,
+            'nama_user'     => $nama_user,
+            'email_user'    => $email_user,
+            'nopol_user'    => $nopol,
+            'password'      => $password_user,
+            'notelp_user'   => $notelp,
             'jml_roda_kendaraan' => $kd_jenis
         );
         if($this->m_login->m_cek_mail()->num_rows()>=1){

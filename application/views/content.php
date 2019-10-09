@@ -54,5 +54,20 @@ $this->load->helper('url');
             </div>
             <?php }?>
         </div>
+        <asside class="paging">
+            <nav class="pagination" role="navigation" aria-label="pagination">
+            <ul class="pagination-list">
+                <?php
+                for($i=1;$i<=$jml_lokasi;$i++)
+                    if ($i != $this->input->get('page')){
+                        echo "<li>".anchor("?page=$i",$i,'class="pagination-link" aria-label="Page 1" aria-current="page"')."</li>";
+                }
+                else{ 
+                    echo "<li>".anchor("?page=$i",$i,'class="pagination-link is-current" aria-label="Page 1" aria-current="page"')."</li>";
+                }
+                ?>
+            </ul>
+            </nav>
+        </asside>
     </div>
 </section>

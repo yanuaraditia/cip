@@ -76,7 +76,7 @@ $this->load->helper('url');
                                 <button class="button is-primary is-medium is-fullwidth">Daftar</button>
                             </div>
                             <div class="field has-text-centered">
-                                    <span>Sudah punya akun? <a href="login">Masuk</a></span>
+                                <span>Sudah punya akun? <a href="login">Masuk</a></span>
                             </div>
                         </div>
                     </form>                    
