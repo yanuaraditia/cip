@@ -19,42 +19,42 @@ $this->load->helper('url');
                         <hr>
                         <div class="field">
                             <div class="control control has-icons-right">
-                                <input class="input" type="text" name="nama" placeholder="Contoh Eko Sudarsono">
+                                <input class="input" type="text" name="nama" placeholder="Contoh Eko Sudarsono" required>
                                 <span class="icon is-right"><i class="material-icons">perm_identity</i></span>
                                 <label class="label">Nama Lengkap</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="control control has-icons-right">
-                                <input class="input" type="email" name="email" placeholder="namaanda@email.com">
+                                <input class="input" type="email" name="email" placeholder="namaanda@email.com" required>
                                 <span class="icon is-right"><i class="material-icons">mail_outline</i></span>
                                 <label class="label">Email</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="control has-icons-right">
-                                <input class="input" type="password" name="password" placeholder="Gunakan kata sandi rumit">
+                                <input class="input" type="password" name="password" placeholder="Gunakan kata sandi rumit" required>
                                 <span class="icon is-right"><i class="material-icons">lock_open</i></span>
                                 <label class="label">Password</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="control has-icons-right">
-                                <input class="input" type="tel" name="notelp" placeholder="Gunakan awalan 0 ex 0287">
+                                <input class="input" type="tel" name="notelp" placeholder="Gunakan awalan 0 ex 0287" required>
                                 <span class="icon is-right"><i class="material-icons">local_phone</i></span>
                                 <label class="label">Nomor Telepon</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="control has-icons-right">
-                                <input class="input" type="text" name="nopol" placeholder="Contoh : AA-3576-AD">
+                                <input class="input" type="text" name="nopol" placeholder="Contoh : AA-3576-AD" required>
                                 <span class="icon is-right"><i class="material-icons">local_phone</i></span>
                                 <label class="label">Nomor Polisi</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="control has-icons-right">
-                                <select class="input" type="text" name="jenis_kendaraan">
+                                <select class="input" type="text" name="jenis_kendaraan" required>
                                     <option value=4>Roda Empat</option>
                                     <option value=6>Roda Enam</option>
                                     <option value=8>Lebih dari 6</option>
