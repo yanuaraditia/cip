@@ -63,6 +63,3 @@ $this->load->helper('url');
         </div>
     </div>
 </section>
-<script>
-    $(document).title = <?php echo $nama_lokasi;?>;
-</script>
