@@ -29,7 +29,9 @@ $this->load->helper('url');
                 <h5 class="subtitle is-5"><?php echo $alamat_lokasi;?></h5>
                 <div class="lantai">
                     <ul class="list">
-                        <?php
+                    <?php
+                    $row = $list_lantai->row();
+                    if(isset($row)) {
                         foreach($list_lantai->result_array() as $data) {
                         ?>
                         <li class="list-item">
@@ -37,13 +39,24 @@ $this->load->helper('url');
                             <ul class="list-slot">
                                 <?php
                                 $dat = $this->db->query('SELECT * FROM slot WHERE kd_lantai = '.$data['kd_lantai']);
-                                foreach($dat->result_array() as $slot) {
-                                    echo "<li>".anchor('book/confirm?kd='.base64_encode($slot['kd_slot']),$slot['nama_slot'])."</li>";
+                                $rows = $dat->row();
+                                if(isset($rows)) {
+                                    foreach($dat->result_array() as $slot) {
+                                        echo "<li>".anchor('book/confirm?kd='.base64_encode($slot['kd_slot']),$slot['nama_slot'])."</li>";
+                                    }
+                                }
+                                else {
+                                    echo "<article class=\"message is-warning\"><div class=\"message-body\">Slot sedang penuh atau sedang tidak tersedia</div></article>";
                                 }
                                 ?>
                             </ul>
                         </li>
-                        <?php }?>
+                        <?php }
+                    }
+                    else {
+                        echo "<li class=\"list-item\"><article class=\"message is-danger\"><div class=\"message-body\">Belum tersedia slot parkir untuk lokasi ini</div></article></li>";
+                    }
+                    ?>
                     </ul>
                 </div>
             </div>
