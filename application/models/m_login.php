@@ -15,7 +15,7 @@ class M_login extends CI_Model{
 	function daftar($data,$table) {
 		$this->db->insert($table,$data);
 	}
-	function sendVerificatinEmail($email){
+	function kirim_email($email){
 		$config = Array(
 			'protocol' => 'smtp',
 			'smtp_host' => 'mail.paparkir.com.',
