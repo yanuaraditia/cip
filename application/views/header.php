@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <section class="section search" id="search">
         <div class="container">
-            <form method="get" action="<?php echo base_url()."mainpage/cari";?>" class="field">
+            <form method="get" action="<?php echo base_url()."MainPage/cari";?>" class="field">
                 <div class="control">
                     <input class="input is-large" type="text" name="q" placeholder="Cari lokasi parkir">
                     <button class="button"><i class="material-icons">search_outline</i></button>
@@ -32,8 +32,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             break;
                     }
                     ?>
-                    <li class="navbar-item<?php echo $vec['0'];?>"><?php echo anchor('mainpage','Cari Lokasi');?></li>
-                    <li class="navbar-item<?php echo $vec['1'];?>"><?php echo anchor('riwayat','Riwayat Transaksi');?></li>
+                    <li class="navbar-item<?php echo $vec['0'];?>"><?php echo anchor('MainPage','Cari Lokasi');?></li>
+                    <li class="navbar-item<?php echo $vec['1'];?>"><?php echo anchor('Riwayat','Riwayat Transaksi');?></li>
                 </ul>
             </div>
             <div class="navbar-end">

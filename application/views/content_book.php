@@ -42,7 +42,7 @@ $this->load->helper('url');
                                 $rows = $dat->row();
                                 if(isset($rows)) {
                                     foreach($dat->result_array() as $slot) {
-                                        echo "<li>".anchor('book/confirm?kd='.base64_encode($slot['kd_slot']),$slot['nama_slot'])."</li>";
+                                        echo "<li>".anchor('Book/confirm?kd='.base64_encode($slot['kd_slot']),$slot['nama_slot'])."</li>";
                                     }
                                 }
                                 else {

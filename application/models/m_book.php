@@ -1,6 +1,6 @@
 <?php
 
-class m_book extends CI_Model{
+class M_book extends CI_Model{
       function list_lantai(){
             $id = base64_decode($this->input->get('id'));
             $lantai=$this->db->get_where('lantai',array('kd_lokasi'=>$id));

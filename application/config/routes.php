@@ -1,5 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$route['default_controller'] = 'mainpage';
+$route['default_controller'] = 'MainPage';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

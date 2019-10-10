@@ -1,6 +1,6 @@
 <?php
 
-class m_lokasi extends CI_Model{
+class M_lokasi extends CI_Model{
       function list_lokasi($batas){
             $batas   = $batas;
             $halaman = $this->input->get('page');
