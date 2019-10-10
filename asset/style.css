@@ -537,3 +537,20 @@ a {
     border-right: 1px solid rgba(0, 0, 0, .1);
     padding-right: 10px;
 }
+@media screen and (max-width:1024px) {
+    .booking-section .button.is-primary.bok {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    .dashboard .card {
+        padding: 0;
+        border: none;
+    }
+    .dashboard label {
+        display: none;
+    }
+    .session .form {
+        border: none;
+    }
+}
