@@ -8,15 +8,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <form method="get" action="<?php echo base_url()."MainPage/cari";?>" class="field">
                 <div class="control">
                     <input class="input is-large" type="text" name="q" placeholder="Cari lokasi parkir">
-                    <button class="button"><i class="material-icons">search_outline</i></button>
+                    <button class="button" type="submit"><i class="material-icons">search_outline</i></button>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
     <header class="navbar" id="navigation" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <?php echo anchor('#','<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>','role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"');?>
+                <button role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+                </button>
             </div>
             <div id="navbarBasicExample" class="navbar-menu">
                 <ul class="navbar-start">

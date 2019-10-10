@@ -16,6 +16,10 @@ a {
     font-family: "Titillium Web",sans-serif;
     font-weight: 600;
 }
+.navbar-burger.burger {
+    background: transparent;
+    border: none;
+}
 .button.fab {
     background: transparent;
     width: 40px;
@@ -324,6 +328,9 @@ a {
     }
     .section.search:not(.is-fixed-top) .input {
         padding-left: 50px;
+    }
+    .section.search.is-fixed-top .field {
+        margin-bottom: 0;
     }
     #navigation ~ .section {
         margin-top: 150px;
