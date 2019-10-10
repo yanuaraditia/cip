@@ -15,8 +15,15 @@ class M_lokasi extends CI_Model{
             return $lokasi;
       }
       function jml_lokasi($batas) {
-            $jml_data = $this->db->get('lokasi')->num_rows();
-            $jml_halaman = ceil($jml_data/$batas);
+            if($this->input->get('q')) {
+                  $this->db->like('nama_lokasi', $this->input->get('q'));
+                  $jml_data = $this->db->get('lokasi')->num_rows();
+                  $jml_halaman = ceil($jml_data/$batas);
+            }
+            else {
+                  $jml_data = $this->db->get('lokasi')->num_rows();
+                  $jml_halaman = ceil($jml_data/$batas);
+            }
             return $jml_halaman;
       }
       function cari_lokasi($do){

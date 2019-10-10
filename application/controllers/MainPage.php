@@ -26,8 +26,9 @@ class MainPage extends CI_Controller {
 		if(isset($_GET['q'])) {
 			$data = array(
 				'bar' => 1,
-				'list_lokasi'=>$this->M_lokasi->cari_lokasi($_GET['q']),
-				'vew' => '../asset/style.css'
+				'list_lokasi'=> $this->M_lokasi->cari_lokasi($_GET['q']),
+				'vew' => '../asset/style.css',
+				'jml_lokasi' => $this->M_lokasi->jml_lokasi(5)
 			);
 			$this->load->view('link_rel',$data);
 			$this->load->view('header');
