@@ -9,7 +9,7 @@ class Daftar extends CI_Controller {
 			redirect(base_url("dashboard"));
 		}
         else {
-            $this->load->model('m_login');
+            $this->load->model('M_login');
         }
 	}
     public function index()
@@ -36,7 +36,7 @@ class Daftar extends CI_Controller {
             'notelp_user'   => $notelp,
             'jml_roda_kendaraan' => $kd_jenis
         );
-        if($this->m_login->m_cek_mail()->num_rows()>=1){
+        if($this->M_login->m_cek_mail()->num_rows()>=1){
             $data = array(
                 'vew' => '../asset/style.css',
                 'error' => 'Akun dengan nopol / e-mail / nomor telepon yang sama telah terdaftar sebelumnya'
@@ -45,7 +45,7 @@ class Daftar extends CI_Controller {
 			$this->load->view('register_content',$data);
 			$this->load->view('session_footer');
         }
-        elseif($this->m_login->m_cek_nopol()->num_rows()>=1) {
+        elseif($this->M_login->m_cek_nopol()->num_rows()>=1) {
             $data = array(
                 'vew' => '../asset/style.css',
                 'error' => 'Akun dengan nopol / e-mail / nomor telepon yang sama telah terdaftar sebelumnya'
@@ -54,7 +54,7 @@ class Daftar extends CI_Controller {
 			$this->load->view('register_content');
 			$this->load->view('session_footer');
         }
-        elseif($this->m_login->m_cek_notelp()->num_rows()>=1) {
+        elseif($this->M_login->m_cek_notelp()->num_rows()>=1) {
             $data = array(
                 'vew' => '../asset/style.css',
                 'error' => 'Akun dengan nopol / e-mail / nomor telepon yang sama telah terdaftar sebelumnya'
@@ -64,7 +64,7 @@ class Daftar extends CI_Controller {
 			$this->load->view('session_footer');
         }
         else {
-            $this->m_login->daftar($data,'akun');
+            $this->M_login->daftar($data,'akun');
             redirect(base_url());
         }
     }

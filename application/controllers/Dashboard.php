@@ -7,14 +7,14 @@ class Dashboard extends CI_Controller{
 			redirect(base_url("login"));
 		}
 		else {
-			$this->load->model('m_dash');
+			$this->load->model('M_dash');
 			$this->load->helper('user');
 		}
 	}
  
 	function index(){
 		$data = array(
-			'profile'=> $this->m_dash->show_me($this->session->userdata('email_user'))
+			'profile'=> $this->M_dash->show_me($this->session->userdata('email_user'))
 		);
     	$this->load->view('link_rel');
 		$this->load->view('dashboard_v',$data);
