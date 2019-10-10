@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="card">
                     <?php
                     foreach($profile->result_array() as $dashboard) {
-                        echo anchor('mainpage','<i class="material-icons">arrow_back</i>','class="button fab"');
+                        echo anchor('MainPage','<i class="material-icons">arrow_back</i>','class="button fab"');
                     ?>
                     <label>Dashboard : <?php echo $dashboard['nama_user'];?></label>
                     <div class="account-btn">

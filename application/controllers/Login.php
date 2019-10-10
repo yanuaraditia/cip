@@ -3,7 +3,7 @@
 class Login extends CI_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->model('M_login');
+		$this->load->model('m_login');
 	}
 	function index(){
 		$this->load->view('session_header');
@@ -14,8 +14,8 @@ class Login extends CI_Controller{
 	function aksi_login(){
 		$email_user = $this->input->post('email');
 		$password = $this->input->post('password');
-		$cek = $this->M_login->m_cek_mail()->row(1);
-		if($this->M_login->m_cek_mail()->num_rows()==1) {
+		$cek = $this->m_login->m_cek_mail()->row(1);
+		if($this->m_login->m_cek_mail()->num_rows()==1) {
 			if(hash_verified($this->input->post('password'),$cek->password) && !empty($cek->password)){
 				$data_session = array(
 					'id_user' => $id_user,

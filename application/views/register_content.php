@@ -8,7 +8,7 @@ $this->load->helper('url');
                 <div class="column is-4-desktop">
                     <form class="form" action="daftar/proses_daftar" method="post">
                         <div class="head-session has-text-centered">
-                            <?php echo anchor('mainpage','<img src="https://paparkir.com/img/logo-name%402x.png" class="logo">');?>
+                            <?php echo anchor('MainPage','<img src="https://paparkir.com/img/logo-name%402x.png" class="logo">');?>
                             <h1 class="title is-4">Registrasi</h1>
                             <?php
                             if(isset($error)) {
