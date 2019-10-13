@@ -11,12 +11,12 @@ class Mitra extends CI_Controller{
 		}
 	}
 	function index(){
-		$this->load->model('M_dash');
+		$this->load->model('M_mitra');
 		$data = array(
-			'profile'=> $this->M_dash->show_me($this->session->userdata('email_mitra'))
+			'profile'=> $this->M_mitra->show_me($this->session->userdata('email_mitra'))
 		);
-    	$this->load->view('link_rel');
-		$this->load->view('dashboard_v',$data);
+    	$this->load->view('link_rel',$data);
+		$this->load->view('mitra_dash');
     	$this->load->view('footer');
     }
     function login()
@@ -36,7 +36,7 @@ class Mitra extends CI_Controller{
 					'status' => "login"
 					);
 				$this->session->set_userdata($data_session);
-				redirect(base_url("Mitra/dashboard"));
+				redirect(base_url("Mitra"));
 			}else{
 				$data = array(
 					'error' => 'Username atau password salah'
