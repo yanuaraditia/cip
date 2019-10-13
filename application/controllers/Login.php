@@ -26,7 +26,6 @@ class Login extends CI_Controller{
 				redirect(base_url("dashboard"));
 			}else{
 				$data = array(
-					'vew' => '../asset/style.css',
 					'error' => 'Username atau password salah'
 				);
 				$this->load->view('session_header',$data);
@@ -36,7 +35,6 @@ class Login extends CI_Controller{
 		}
 		else {
 			$data = array(
-				'vew' => '../asset/style.css',
 				'error' => 'Username atau password salah'
 			);
 			$this->load->view('session_header',$data);

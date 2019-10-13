@@ -10,14 +10,14 @@ $this->load->helper('url');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500|Titillium+Web:400,600,700|Material+Icons&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?php if(isset($vew)) { echo $vew;} else { echo "asset/style.css";}?>">
+    <link rel="stylesheet" href="<?php echo base_url().'/asset/style.css';?>" />
 </head>
 <body>
     <section class="section session login">
         <div class="container">
             <div class="columns">
                 <div class="column is-4-desktop">
-                    <form class="form" action="<?php echo base_url('login/aksi_login'); ?>" method="post">
+                    <form class="form" action="<?php echo base_url('Mitra/aksi_login'); ?>" method="post">
                         <div class="head-session has-text-centered">
                             <?php echo anchor('MainPage','<img src="https://paparkir.com/img/logo-name%402x.png" class="logo">');?>
                             <h1 class="title is-4">Masuk paparkir</h1>
@@ -31,7 +31,7 @@ $this->load->helper('url');
                         <div class="field">
                             <div class="control has-icons-right">
                                 <input class="input" type="email" name="email" placeholder="seseorang@contoh.com" id="textdex" required>
-                                <label class="label">Email</label>
+                                <label class="label">Email Mitra</label>
                                 <span class="icon is-right"><i class="material-icons">mail_outline</i></span>
                             </div>
                         </div>

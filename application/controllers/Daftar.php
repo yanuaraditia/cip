@@ -38,7 +38,6 @@ class Daftar extends CI_Controller {
         );
         if($this->m_login->m_cek_mail()->num_rows()>=1){
             $data = array(
-                'vew' => '../asset/style.css',
                 'error' => 'Akun dengan nopol / e-mail / nomor telepon yang sama telah terdaftar sebelumnya'
             );
 			$this->load->view('session_header',$data);
@@ -47,7 +46,6 @@ class Daftar extends CI_Controller {
         }
         elseif($this->m_login->m_cek_nopol()->num_rows()>=1) {
             $data = array(
-                'vew' => '../asset/style.css',
                 'error' => 'Akun dengan nopol / e-mail / nomor telepon yang sama telah terdaftar sebelumnya'
             );
 			$this->load->view('session_header',$data);
@@ -56,7 +54,6 @@ class Daftar extends CI_Controller {
         }
         elseif($this->m_login->m_cek_notelp()->num_rows()>=1) {
             $data = array(
-                'vew' => '../asset/style.css',
                 'error' => 'Akun dengan nopol / e-mail / nomor telepon yang sama telah terdaftar sebelumnya'
             );
 			$this->load->view('session_header',$data);
