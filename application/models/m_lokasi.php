@@ -32,7 +32,13 @@ class M_lokasi extends CI_Model{
             return $res;
       }
       function cek_slot_kosong($kd_lokasi) {
-            return $this->db->query("SELECT slot.kd_slot FROM slot JOIN lantai ON slot.kd_lantai = lantai.kd_lantai JOIN lokasi on lantai.kd_lokasi = lokasi.kd_lokasi LEFT JOIN booking ON slot.kd_slot = booking.kd_slot WHERE lokasi.kd_lokasi = $kd_lokasi AND booking.kd_slot IS NULL OR lokasi.kd_lokasi = $kd_lokasi AND booking.kd_slot = 2");
+            $this->db->select('slot.kd_slot')->from('slot');
+            $this->db->join('lantai','slot.kd_lantai = lantai.kd_lantai');
+            $this->db->join('lokasi','lantai.kd_lokasi = lokasi.kd_lokasi');
+            $this->db->join('booking','booking ON slot.kd_slot = booking.kd_slot','left');
+            $where = 'lokasi.kd_lokasi = '.$kd_lokasi.' AND booking.kd_slot IS NULL OR lokasi.kd_lokasi = '.$kd_lokasi.' AND booking.status = 2';
+            $this->db->where($where);
+            return $this->db->get();
       }
       function cek_tarif($kd_lokasi) {
             return $this->db->query("SELECT min(tarif_lantai) as min, max(tarif_lantai) as max FROM lantai WHERE kd_lokasi=$kd_lokasi");
