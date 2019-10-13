@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         echo anchor('MainPage','<i class="material-icons">arrow_back</i>','class="button fab"');
                     ?>
                     <label>Dashboard : <?php echo $dashboard['nama_user'];?></label>
-                    <div class="account-btn">
+                    <div class="buttons account-btn">
                         <?php
                         echo anchor('dashboard',"<strong>".$this->session->userdata("email_user")."</strong>", 'class="button is-primary account"');
                         echo anchor('login/logout','<i class="material-icons">power_settings_new</i>', 'class="button is-light"');

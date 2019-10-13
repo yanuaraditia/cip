@@ -17,7 +17,7 @@ $this->load->helper('url');
         <div class="container">
             <div class="columns">
                 <div class="column is-4-desktop">
-                    <form class="form" action="<?php echo base_url('Mitra/aksi_login'); ?>" method="post">
+                    <form class="form" action="<?php echo base_url('Mitra_login/aksi_login'); ?>" method="post">
                         <div class="head-session has-text-centered">
                             <?php echo anchor('MainPage','<img src="https://paparkir.com/img/logo-name%402x.png" class="logo">');?>
                             <h1 class="title is-4">Masuk paparkir</h1>
