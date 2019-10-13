@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="card">
                     <?php
                     foreach($profile->result_array() as $dashboard) {
-                        echo anchor('MainPage','<i class="material-icons">arrow_back</i>','class="button fab"');
+                        echo anchor('MainPage','<i class="material-icons">home</i>','class="button fab"');
                     ?>
                     <label>Dashboard : <?php echo $dashboard['nama_user'];?></label>
                     <div class="buttons account-btn">
@@ -32,12 +32,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     echo "</li>";
                                 }
                                 elseif($status==1) {
-                                    echo "<li class=\"list-item green\">".$row->nama_lokasi."</li>";
+                                    echo "<li class=\"list-item green\">";
+                                    echo anchor("https://www.google.com/maps?q=".$row->lttd_lokasi.",".$row->lgtd_lokasi."","<i class=\"material-icons\">near_me</i>".$row->nama_lokasi,'target="blank_"');
+                                    echo "</li>";
                                     $masuk = New DateTime($row->tgl_booking);
                                     $sekarang = New DateTime(date('Y-m-d'));
                                     $total_hari = $masuk->diff($sekarang);
                                     $total_bayar = $row->tarif_lantai*($total_hari->days+1);
-                                    echo "<li class=\"list-item price\"><i class=\"material-icons\">payment</i>Rp. ".$total_bayar."</li>";
+                                    echo "<li class=\"list-item price\"><i class=\"material-icons\">payment</i>Rp. ".number_format($total_bayar)."</li>";
+                                    echo "<li class=\"list-item price\"><i class=\"material-icons\">date_range</i>".tglIndo($row->tgl_booking)."</li>";
                                     echo "<li class=\"list-item slot\"><i class=\"material-icons\">dashboard</i>".$row->nama_slot." / ".$row->nama_lantai."</li>";
                                     echo "<li class=\"list-item slot\"><i class=\"material-icons\">drive_eta</i>".$dashboard['nopol_user']." / ".$dashboard['jml_roda_kendaraan']." Roda</li>";
                                 }
@@ -57,8 +60,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </article>
                     <ul class="list history">
                         <?php 
-                        foreach($riwayat->result_array() as $history) {
-                            echo "<li class=\"list-item\"><i class=\"material-icons\">history</i><span>#".$history['kd_booking']."</span><span>".tglIndo($history['tgl_booking'])."</span><span>".$history['kd_slot']."</span></li>";
+                        $jml = $riwayat->num_rows();
+                        if($jml) {
+                            foreach($riwayat->result_array() as $history) {
+                                echo "<li class=\"list-item\"><i class=\"material-icons\">history</i><span>#".$history['kd_booking']."</span><span>".tglIndo($history['tgl_booking'])."</span><span>".$history['kd_slot']."</span></li>";
+                            }
+                        }
+                        else {
+                            echo "<li class=\"list-item\"><i class=\"material-icons\">history</i><span>Belum ada riwayat</span></li>";
                         }
                         ?>
                     </ul>
