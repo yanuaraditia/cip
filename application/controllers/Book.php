@@ -16,12 +16,13 @@ class Book extends CI_Controller {
 	{
 		if($this->input->get('id')) {
 			$data = array(
-				'list_lantai'=>$this->m_book->list_lantai(),
-				'bar'=>1,
-				'detail_lokasi'=>$this->m_book->detail_lokasi()
+				'title' => "Booking Slot Parkir",
+				'list_lantai' => $this->m_book->list_lantai(),
+				'bar' => 1,
+				'detail_lokasi' => $this->m_book->detail_lokasi()
 			);
-			$this->load->view('link_rel');
-			$this->load->view('header',$data);
+			$this->load->view('link_rel',$data);
+			$this->load->view('header');
 			$this->load->view('content_book');
 			$this->load->view('footer');
 		}

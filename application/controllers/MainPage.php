@@ -23,11 +23,11 @@ class MainPage extends CI_Controller {
 	}
 	function cari()
 	{
-		if(isset($_GET['q'])) {
+		if($this->input->get('q')) {
 			$data = array(
+				'title' => 'Hasil untuk : "'.$this->input->get('q').'"',
 				'bar' => 1,
-				'list_lokasi'=> $this->M_lokasi->cari_lokasi($_GET['q']),
-				'vew' => '../asset/style.css',
+				'list_lokasi'=> $this->M_lokasi->cari_lokasi($this->input->get('q')),
 				'jml_lokasi' => $this->M_lokasi->jml_lokasi(5)
 			);
 			$this->load->view('link_rel',$data);
