@@ -17,11 +17,14 @@ class Login extends CI_Controller{
 		$cek = $this->m_login->m_cek_mail()->row(1);
 		if($this->m_login->m_cek_mail()->num_rows()==1) {
 			if(hash_verified($this->input->post('password'),$cek->password) && !empty($cek->password)){
-				$data_session = array(
-					'id_user' => $id_user,
-					'email_user' => $email_user,
-					'status' => "login"
+				$cek = $this->m_login->m_cek_mail()->result_array();
+				foreach($cek as $data) {
+					$data_session = array(
+						'id_user' => $data['id_user'],
+						'email_user' => $email_user,
+						'status' => "login"
 					);
+				}
 				$this->session->set_userdata($data_session);
 				redirect(base_url("dashboard"));
 			}else{

@@ -19,8 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <hr>
                     <ul class="list book">
                         <?php
-                        $q = $this->db->query("SELECT booking.kd_booking, booking.tgl_booking, slot.nama_slot, lantai.tarif_lantai, lantai.nama_lantai, lokasi.nama_lokasi,lokasi.lttd_lokasi, lokasi.lgtd_lokasi, booking.status FROM booking LEFT JOIN slot ON booking.kd_slot = slot.kd_slot LEFT JOIN lantai ON slot.kd_lantai = lantai.kd_lantai JOIN lokasi ON lantai.kd_lokasi=lokasi.kd_lokasi WHERE id_user = '".$dashboard['id_user']."' and status != 2");
-                        $row = $q->row();
+                        $row = $booking->row();
                         ?>
                         <?php
                         if(isset($row)) {
@@ -58,8 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </article>
                     <ul class="list history">
                         <?php 
-                        $arr = $this->db->query("SELECT * FROM booking WHERE id_user = '".$dashboard['id_user']."' AND status = 2 LIMIT 5");
-                        foreach($arr->result_array() as $history) {
+                        foreach($riwayat->result_array() as $history) {
                             echo "<li class=\"list-item\"><i class=\"material-icons\">history</i><span>#".$history['kd_booking']."</span><span>".tglIndo($history['tgl_booking'])."</span><span>".$history['kd_slot']."</span></li>";
                         }
                         ?>

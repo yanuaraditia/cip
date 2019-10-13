@@ -38,10 +38,10 @@ $this->load->helper('url');
                             <h5><?php echo $data['nama_lantai'];?> (<small>Rp. <?php echo number_format($data['tarif_lantai']);?></small>)</h5>
                             <ul class="list-slot">
                                 <?php
-                                $dat = $this->db->query('SELECT * FROM slot WHERE kd_lantai = '.$data['kd_lantai']);
-                                $rows = $dat->row();
+                                $tampil_slot = $this->m_book->show_slot($data['kd_lantai']);
+                                $rows = $tampil_slot->row();
                                 if(isset($rows)) {
-                                    foreach($dat->result_array() as $slot) {
+                                    foreach($tampil_slot->result_array() as $slot) {
                                         echo "<li>".anchor('Book/confirm?kd='.base64_encode($slot['kd_slot']),$slot['nama_slot'])."</li>";
                                     }
                                 }

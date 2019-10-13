@@ -15,6 +15,7 @@ class Book extends CI_Controller {
 	public function index()
 	{
 		if($this->input->get('id')) {
+			$kd_lokasi = base64_decode($this->input->get('id'));
 			$data = array(
 				'title' => "Booking Slot Parkir",
 				'list_lantai' => $this->m_book->list_lantai(),

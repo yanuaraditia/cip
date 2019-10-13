@@ -17,13 +17,13 @@ $this->load->helper('url');
                         <div class="detail">
                             <ul class="menu-list">
                                 <?php
-                                $slot = $this->db->query("SELECT slot.kd_slot FROM slot JOIN lantai ON slot.kd_lantai = lantai.kd_lantai JOIN lokasi on lantai.kd_lokasi = lokasi.kd_lokasi LEFT JOIN booking ON slot.kd_slot = booking.kd_slot WHERE lokasi.kd_lokasi = ".$data['kd_lokasi']." AND booking.kd_slot IS NULL OR lokasi.kd_lokasi = ".$data['kd_lokasi']." AND booking.kd_slot = 2");
-                                $kosong  = $slot->num_rows();                                
+                                $slot_kosong = $this->M_lokasi->cek_slot_kosong($data['kd_lokasi']);
+                                $kosong  = $slot_kosong->num_rows();
                                 ?>
                                 <li><i class="material-icons">directions_car</i> Slot Tersedia : <?php echo $kosong;?></li>
                                 <?php
-                                $range = $this->db->query('SELECT min(tarif_lantai) as min, max(tarif_lantai) as max FROM lantai WHERE kd_lokasi='.$data['kd_lokasi']);
-                                $range = $range->row_array();
+                                $tarif = $this->M_lokasi->cek_tarif($data['kd_lokasi']);
+                                $range = $tarif->row_array();
                                 ?>
                                 <li><i class="material-icons">monetization_on</i> Tarif : Rp. <?php echo number_format($range['min']);?> - Rp <?php echo number_format($range['max']);?></li>
                             </ul>

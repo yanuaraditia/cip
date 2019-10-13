@@ -13,7 +13,8 @@ class Mitra extends CI_Controller{
 	function index(){
 		$this->load->model('M_mitra');
 		$data = array(
-			'profile'=> $this->M_mitra->show_me($this->session->userdata('email_mitra'))
+			'profile' => $this->M_mitra->show_me($this->session->userdata('email_mitra')),
+			'history' => $this->M_mitra->show_me($this->session->userdata('id_mitra'))
 		);
     	$this->load->view('link_rel',$data);
 		$this->load->view('mitra_dash');
@@ -30,11 +31,15 @@ class Mitra extends CI_Controller{
 		$cek = $this->M_mitra->mitra_login()->row(1);
 		if($this->M_mitra->mitra_login()->num_rows()==1) {
 			if(hash_verified($this->input->post('password'),$cek->password) && !empty($cek->password)){
-				$data_session = array(
-					'id_mitra' => $id_mitra,
-					'email_mitra' => $email_mitra,
-					'status' => "login"
-					);
+				$cek = $this->M_mitra->mitra_login()->result_array();
+				foreach($cek as $data) {
+					$id_mitra = $data['id_mitra'];
+					$data_session = array(
+						'id_mitra' => $id_mitra,
+						'email_mitra' => $email_mitra,
+						'status' => "login"
+						);
+				}
 				$this->session->set_userdata($data_session);
 				redirect(base_url("Mitra"));
 			}else{

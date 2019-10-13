@@ -14,4 +14,7 @@ class M_book extends CI_Model{
       function book_confirm($data) {
             $this->db->insert('booking',$data);
       }
+      function show_slot($kd_lantai) {
+            return $this->db->get_where('slot',array('kd_lantai' => $kd_lantai));
+      }
 }

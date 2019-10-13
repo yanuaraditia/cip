@@ -13,7 +13,7 @@ class MainPage extends CI_Controller {
 		$data = array(
 			'bar' => 1,
 			'list_lokasi' => $this->M_lokasi->list_lokasi($batas),
-			'jml_lokasi' => $this->M_lokasi->jml_lokasi($batas)
+			'jml_lokasi' => $this->M_lokasi->jml_lokasi($batas),
 		);
 		$this->load->view('link_rel');
 		$this->load->view('header',$data);

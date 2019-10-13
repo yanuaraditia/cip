@@ -31,4 +31,10 @@ class M_lokasi extends CI_Model{
             $res = $this->db->get('lokasi');
             return $res;
       }
+      function cek_slot_kosong($kd_lokasi) {
+            return $this->db->query("SELECT slot.kd_slot FROM slot JOIN lantai ON slot.kd_lantai = lantai.kd_lantai JOIN lokasi on lantai.kd_lokasi = lokasi.kd_lokasi LEFT JOIN booking ON slot.kd_slot = booking.kd_slot WHERE lokasi.kd_lokasi = $kd_lokasi AND booking.kd_slot IS NULL OR lokasi.kd_lokasi = $kd_lokasi AND booking.kd_slot = 2");
+      }
+      function cek_tarif($kd_lokasi) {
+            return $this->db->query("SELECT min(tarif_lantai) as min, max(tarif_lantai) as max FROM lantai WHERE kd_lokasi=$kd_lokasi");
+      }
 }
