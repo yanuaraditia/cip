@@ -63,23 +63,14 @@ $this->load->helper('url');
                                 <label class="label">Jenis Kendaraan</label>
                             </div>
                         </div>
-                            <div class="field">
-                            <div class="control">
-                                <label class="checkbox">
-                                    <input type="checkbox">
-                                    <span>Saya menyetujui <a href="privacy">kebijakan privasi</a></span>
-                                </label>
-                            </div>
-                            </div>
-
-                            <div class="field">
-                                <button class="button is-primary is-medium is-fullwidth">Daftar</button>
-                            </div>
-                            <div class="field has-text-centered">
-                                <span>Sudah punya akun? <a href="login">Masuk</a></span>
-                            </div>
+                        <div class="field">
+                                <button class="button is-primary is-medium is-fullwidth register">Daftar</button>
                         </div>
-                    </form>                    
+                        <div class="field has-text-centered">
+                            <span>Sudah punya akun? <a href="login">Masuk</a></span>
+                        </div>
+                    </div>
+                </form>                    
             </div>
         </div>
     </section>

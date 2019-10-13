@@ -30,6 +30,9 @@ hr {
     height: 40px;
     border-radius: 100px;
 }
+.button:disabled {
+    background: #666!important;
+}
 .button.is-primary {
     background: #f9a602;
 }
