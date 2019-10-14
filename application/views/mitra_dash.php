@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="list history">
                         <?php
                         foreach($history->result_array() as $riwayat) {
-                            echo '<li class="list-item" onclick="window.location=\'invoice?id='.base64_encode($riwayat['kd_booking']).'\'">
+                            echo '<li class="list-item" onclick="window.location=\''.base_url().'Mitra/invoice?id='.base64_encode($riwayat['kd_booking']).'\'">
                             <i class="material-icons">history</i>
                             <span>#'.$riwayat['kd_transaksi'].'</span>
                             <span>Book : #'.$riwayat['kd_booking'].'</span>

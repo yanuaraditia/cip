@@ -92,10 +92,12 @@ class Mitra extends CI_Controller{
 	function invoice() {
 		$id = base64_decode($this->input->get('id'));
 		$invoice = $this->M_mitra->invoice($id);
+		$export = array(
+			'lokasi' => $this->M_mitra->lokasi_mitra($this->session->userdata('id_mitra')),
+			'invoice' => $invoice
+		);
 		$this->load->view('link_rel');
-		$this->load->view('invoice');
+		$this->load->view('invoice',$export);
 		$this->load->view('footer');
-		foreach($invoice->result_array() as $data) {
-		}
 	}
 }

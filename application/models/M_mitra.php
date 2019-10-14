@@ -37,7 +37,7 @@ class M_mitra extends CI_Model{
     return $this->db->get();
   }
   function lokasi_mitra($id_mitra) {
-    $this->db->select(array('lokasi.kd_lokasi','lokasi.nama_lokasi'))->from('lokasi')->join('mitra','mitra.kd_lokasi = lokasi.kd_lokasi')->where('id_mitra',$id_mitra);
+    $this->db->select(array('lokasi.kd_lokasi','lokasi.nama_lokasi','lokasi.alamat_lokasi','lokasi.notelp_lokasi'))->from('lokasi')->join('mitra','mitra.kd_lokasi = lokasi.kd_lokasi')->where('id_mitra',$id_mitra);
     return $this->db->get()->row(1);
   }
   function tampil_lantai($kd_lokasi) {
@@ -60,6 +60,8 @@ class M_mitra extends CI_Model{
     $this->db->select('*')->from('transaksi');
     $this->db->join('booking','booking.kd_booking=transaksi.kd_booking');
     $this->db->join('akun','booking.id_user=akun.id_user');
+    $this->db->join('slot','booking.kd_slot=slot.kd_slot','left');
+    $this->db->join('lantai','slot.kd_lantai=lantai.kd_lantai','left');
     $this->db->where('transaksi.kd_booking',$kd_booking);
     return $this->db->get();
   }

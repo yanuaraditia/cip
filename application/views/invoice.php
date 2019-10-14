@@ -5,36 +5,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <section class="section dashboard">
             <div class="container">
                 <div class="box box-good">
+                    <?php
+                        foreach($invoice->result_array() as $data) {
+                            $kd_transaksi = $data['kd_transaksi'];
+                            $tgl_transaksi = $data['tanggal_bayar'];
+                            $tgl_booking = $data['tgl_booking'];
+                            $order_id = $data['kd_booking'];
+                            $akun = $data['id_user'];
+                            $nama_user = $data['nama_user'];
+                            $notelp = $data['notelp_user'];
+                            $bayar = $data['total_bayar'];
+                            $nopol = $data['nopol_user'];
+                            $email_user = $data['email_user'];
+                            $nama_slot = $data['nama_slot'];
+                            $nama_lantai = $data['nama_lantai'];
+                            $tarif = $data['tarif_lantai'];
+                        }
+                    ?>
                     <div class="box-header">
                         <div class="columns is-mobile">
                             <div class="column is-6">
                                 <div class="shadow large"><img src="https://paparkir.com/img/logo-name@2x.png"/></div>
                             </div>
                             <div class="column is-6">
-                                <p class="has-text-right">Invoice date: 02-11-2017</p>
+                                <p class="has-text-right">Tanggal transaksi : <?php echo $tgl_transaksi;?></p>
                             </div>
                         </div>
                     </div>
-
                     <div class="box-content">
                         <div class="columns is-mobile">
                             <div class="column is-7">
                                 <div class="content">
                                     Dari
-                                    <strong>is-awesome, Inc.</strong><br>
-                                    8513 Posuere Av.<br>
-                                    Oakland, CA 94607<br>
-                                    Phone: (457) 123-4567<br>
-                                    Email: info@is-awesome.com
+                                    <strong><?php echo $lokasi->nama_lokasi;?></strong><br>
+                                    <?php
+                                    $alamat = explode(',',$lokasi->alamat_lokasi);
+                                    $alamat = implode(',<br>',$alamat);
+                                    print_r($alamat);
+                                    ?><br>
+                                    Phone : <?php echo $lokasi->notelp_lokasi;?><br>
+                                    E-mail : <?php echo anchor('mailto:'.$this->session->userdata('email_mitra'),$this->session->userdata('email_mitra'));?>
                                 </div>
                             </div>
                             <div class="column is-5">
                                 <div class="content has-text-right">
-                                    <b>Invoice #223323</b><br>
+                                    <b>Invoice #<?php echo $kd_transaksi;?></b><br>
                                     <br>
-                                    <b>Order ID:</b> 6Z54A<br>
-                                    <b>Tanggal masuk:</b> 02-29-2017<br>
-                                    <b>Akun:</b> 96-34562-2
+                                    <b>Order ID:</b> #<?php echo $order_id;?><br>
+                                    <b>Tanggal masuk:</b> <?php echo tglIndo($tgl_booking);?><br>
+                                    <b>Akun:</b> <?php echo $akun;?>
                                 </div>
                             </div>
                         </div>
@@ -42,16 +61,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="column is-12">
                                 <div class="content">
                                     Kepada
-                                    <strong>Wayne Garry</strong><br>
-                                    Phone: (444) 748-1487<br>
-                                    Email: wayne.thomas@example.com
+                                    <strong><?php echo $nama_user;?></strong><br>
+                                    Phone: <?php echo $notelp;?><br>
+                                    E-mail: <?php echo anchor('mailto:'.$email_user,$email_user);?>
                                 </div>
                             </div>
                         </div>
                         <div class="columns">
                             <div class="column is-12">
                                 <div class="table-is-responsive">
-                                    <table class="table is-inverse">
+                                    <table width="100%" class="table is-inverse">
                                     <thead>
                                         <tr>
                                         <th>No</th>
@@ -64,10 +83,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>AA 3324 RD</td>
-                                            <td>A1 / Lantai 3</td>
-                                            <td>5 Hari</td>
-                                            <td>Tarif Lantai</td>
+                                            <td><?php echo $nopol;?></td>
+                                            <td><?php echo $nama_slot;?> / <?php echo $nama_lantai;?></td>
+                                            <td>
+                                            <?php
+                                                $booking=new DateTime($tgl_booking);
+                                                $today=new DateTime($tgl_transaksi);
+                                                $diff=$today->diff($booking);
+                                                echo $diff->d; echo " Hari";
+                                            ?>
+                                            </td>
+                                            <td>Rp. <?php echo number_format($tarif);?></td>
                                         </tr>
                                     </tbody>
                                     </table>
@@ -77,21 +103,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="columns">
                             <div class="column is-7">
                                 <div class="notification is-success">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit
+                                Invoice ini hanya sebagai bukti traksaksi antara mitra paparkir dengan anda.
                                 </div>
                             </div>
                             <div class="column is-5">
                                 <ul class="list-group list-group-unbordered">
                                     <li class="list-group-item">
-                                    <b>Jumlah:</b> <p class="is-pulled-right">$250.30</p>
+                                    <b>Jumlah:</b> <p class="is-pulled-right">Rp. <?php echo number_format($bayar);?></p>
                                     </li>
                                     <li class="list-group-item">
                                     <b>Pajak :</b> <p class="is-pulled-right">-</p>
                                     </li>
                                     <li class="list-group-item">
-                                    <b>Total:</b> <p class="is-pulled-right"><b>$265.24</b></p>
+                                    <b>Total:</b> <p class="is-pulled-right"><b>Rp. <?php echo number_format($bayar);?></b></p>
                                     </li>
                                 </ul>
                             </div>
