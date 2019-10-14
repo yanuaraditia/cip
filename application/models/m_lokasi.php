@@ -41,6 +41,10 @@ class M_lokasi extends CI_Model{
             return $this->db->get();
       }
       function cek_tarif($kd_lokasi) {
-            return $this->db->query("SELECT min(tarif_lantai) as min, max(tarif_lantai) as max FROM lantai WHERE kd_lokasi=$kd_lokasi");
+            $this->db->select(array(
+                  'min(tarif_lantai) as min',
+                  'max(tarif_lantai) as max',
+            ))->from('lantai')->where('kd_lokasi',$kd_lokasi);
+            return $this->db->get();
       }
 }
