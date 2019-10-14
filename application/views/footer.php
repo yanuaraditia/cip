@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           var longitude = position.coords.longitude;
           $.ajax({
               type:'POST',
-              url:'calc_distance.php',
+              url:'<?php echo base_url();?>Distance',
               data:'latitude='+latitude+'&longitude='+longitude,
               success:function(msg){
                   if(msg){
