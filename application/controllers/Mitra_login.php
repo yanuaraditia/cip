@@ -10,7 +10,7 @@ class Mitra_login extends CI_Controller{
 			$this->load->helper('user');
 		}
 	}
-	function index()
+	public function index()
     {
         $this->load->view('mitra_login');
     }

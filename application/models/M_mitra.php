@@ -56,4 +56,11 @@ class M_mitra extends CI_Model{
   function update($kd_booking,$status) {
     $this->db->where('kd_booking',$kd_booking)->update('booking',array('status'=> $status));
   }
+  function invoice($kd_booking) {
+    $this->db->select('*')->from('transaksi');
+    $this->db->join('booking','booking.kd_booking=transaksi.kd_booking');
+    $this->db->join('akun','booking.id_user=akun.id_user');
+    $this->db->where('transaksi.kd_booking',$kd_booking);
+    return $this->db->get();
+  }
 }

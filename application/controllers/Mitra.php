@@ -89,4 +89,13 @@ class Mitra extends CI_Controller{
 			}
 		}
 	}
+	function invoice() {
+		$id = base64_decode($this->input->get('id'));
+		$invoice = $this->M_mitra->invoice($id);
+		$this->load->view('link_rel');
+		$this->load->view('invoice');
+		$this->load->view('footer');
+		foreach($invoice->result_array() as $data) {
+		}
+	}
 }
