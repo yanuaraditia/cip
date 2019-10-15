@@ -78,6 +78,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                             <div class="field">
+                                <div class="control has-icons-right">
+                                    <select class="input" type="text" name="jenis_kendaraan" required>
+                                        <option value=4>Roda Empat</option>
+                                        <option value=6>Roda Enam</option>
+                                        <option value=8>Lebih dari 6</option>
+                                    </select>
+                                    <span class="icon is-right"><i class="material-icons">drive_eta</i></span>
+                                    <label class="label">Jenis Kendaraan</label>
+                                </div>
+                            </div>
+                            <div class="field">
                                 <button type="submit" class="button is-primary is-medium is-fullwidth">Minta Reset</button>
                             </div>
                         <?php }?>

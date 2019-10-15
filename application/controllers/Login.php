@@ -59,7 +59,8 @@ class Login extends CI_Controller{
 			$question = array(
 				'email_user' => $this->input->post('email'),
 				'nopol_user' => $this->input->post('nopol'),
-				'notelp_user' => $this->input->post('notelp')
+				'notelp_user' => $this->input->post('notelp'),
+				'jml_roda_kendaraan' => $this->input->post('jenis_kendaraan')
 			);
 			$data = $this->m_login->reset_check($question);
 			$row = $data->num_rows();

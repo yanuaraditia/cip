@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button class="button is-primary is-medium is-fullwidth">Masuk</button>
                         </div>
                         <div class="field has-text-centered">
-                            <span>Belum punya akun?? <?php echo anchor('daftar','Daftar');?></span>
+                            <span>Belum punya akun?? <?php echo anchor('daftar','Daftar');?> / <?php echo anchor('login/lupasandi','Lupa Sandi');?></span>
                         </div>
                     </div>
                 </form>                    
