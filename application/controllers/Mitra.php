@@ -64,10 +64,6 @@ class Mitra extends CI_Controller{
 		$this->load->view('mitra_tambah_lantai');
 		$this->load->view('footer');
 	}
-	function logout() {
-		$this->session->sess_destroy();
-		redirect(base_url('login'));
-	}
 	function kelola() {
 		if($this->input->get('act')) {
 			$kd_booking = base64_decode($this->input->get('id'));

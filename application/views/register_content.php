@@ -48,7 +48,7 @@ $this->load->helper('url');
                         <div class="field">
                             <div class="control has-icons-right">
                                 <input class="input" type="text" name="nopol" placeholder="Contoh : AA-3576-AD" required>
-                                <span class="icon is-right"><i class="material-icons">local_phone</i></span>
+                                <span class="icon is-right"><i class="material-icons">verified_user</i></span>
                                 <label class="label">Nomor Polisi</label>
                             </div>
                         </div>

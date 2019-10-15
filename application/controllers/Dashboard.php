@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller{
 			redirect(base_url("login"));
 		}
 		else {
-			$this->load->model('m_dash');
+			$this->load->model('M_dash');
 			$this->load->helper('user');
 		}
 	}
@@ -16,13 +16,26 @@ class Dashboard extends CI_Controller{
 		$id_user = $this->session->userdata('id_user');
 		$email_user = $this->session->userdata('email_user');
 		$data = array(
-			'profile' => $this->m_dash->show_me($email_user),
+			'profile' => $this->M_dash->show_me($email_user),
 			'title' => "Dashboard Paparkir",
-			'booking' => $this->m_dash->booking_status($id_user),
-			'riwayat' => $this->m_dash->show_history($id_user)
+			'booking' => $this->M_dash->booking_status($id_user),
+			'riwayat' => $this->M_dash->show_history($id_user)
 		);
     	$this->load->view('link_rel',$data);
 		$this->load->view('dashboard_v');
     	$this->load->view('footer');
     }
+	function profil() {
+		$id_user = $this->session->userdata('id_user');
+		$email_user = $this->session->userdata('email_user');
+		$data = array(
+			'profile' => $this->M_dash->show_me($email_user),
+			'title' => "Ubah Profil",
+			'booking' => $this->M_dash->booking_status($id_user),
+			'riwayat' => $this->M_dash->show_history($id_user)
+		);
+    	$this->load->view('link_rel',$data);
+		$this->load->view('user_profile');
+    	$this->load->view('footer');
+	}
 }

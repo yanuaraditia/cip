@@ -31,7 +31,7 @@ class M_lokasi extends CI_Model{
             $res = $this->db->get('lokasi');
             return $res;
       }
-      function cek_slot_kosong($kd_lokasi) {
+      public function cek_slot_kosong($kd_lokasi) {
             $this->db->select('slot.kd_slot')->from('slot');
             $this->db->join('lantai','slot.kd_lantai = lantai.kd_lantai');
             $this->db->join('lokasi','lantai.kd_lokasi = lokasi.kd_lokasi');
@@ -40,7 +40,7 @@ class M_lokasi extends CI_Model{
             $this->db->where($where);
             return $this->db->get();
       }
-      function cek_tarif($kd_lokasi) {
+      public function cek_tarif($kd_lokasi) {
             $this->db->select(array(
                   'min(tarif_lantai) as min',
                   'max(tarif_lantai) as max',

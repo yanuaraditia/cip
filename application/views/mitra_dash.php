@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="buttons account-btn">
                         <?php
                         echo anchor('Mitra/tambah_slot','<i class="material-icons">add</i> Tambah Slot','class="button is-primary account"');
-                        echo anchor('Mitra/logout','<i class="material-icons">power_settings_new</i>','class="button is-light account"');
+                        echo anchor('logout','<i class="material-icons">power_settings_new</i>','class="button is-light account"');
                         ?>
                     </div>
                     <hr>

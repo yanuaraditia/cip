@@ -591,6 +591,22 @@ hr {
     top: 0;
     left: 0;
 }
+.input[disabled], .select fieldset[disabled] select, .select select[disabled], .textarea[disabled], fieldset[disabled] .input, fieldset[disabled] .select select, fieldset[disabled] .textarea {
+    background: #fff;
+    border:1px solid rgba(0, 0, 0, .3);
+    color: rgba(0, 0, 0, .3);
+}
+.dashboard .control .input[disabled] ~ .label {
+    position: absolute;
+    font-weight: 400;
+    font-size: 14px;
+    background: #fff;
+    top: -24px!important;
+    padding: 2px 5px;
+    color: rgba(0, 0, 0, .3);
+    width: inherit;
+    transition: all .05s ease-in-out;
+}
 .dashboard .control .input ~ .label {
     top: -24px;
     left: 0;
@@ -612,6 +628,9 @@ hr {
     margin-right: 10px;
     border-right: 1px solid rgba(0, 0, 0, .1);
     padding-right: 10px;
+}
+.session .message-body {
+    word-wrap: break-word;
 }
 @media screen and (max-width:1024px) {
     .booking-section .button.is-primary.bok {

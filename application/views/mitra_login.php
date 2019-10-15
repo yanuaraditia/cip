@@ -20,7 +20,7 @@ $this->load->helper('url');
                     <form class="form" action="<?php echo base_url('Mitra_login/aksi_login'); ?>" method="post">
                         <div class="head-session has-text-centered">
                             <?php echo anchor('MainPage','<img src="https://paparkir.com/img/logo-name%402x.png" class="logo">');?>
-                            <h1 class="title is-4">Masuk paparkir</h1>
+                            <h1 class="title is-4">Masuk mitra</h1>
                             <?php
                             if(isset($error)) {
                                 echo "<p class=\"help is-danger\">$error</p>";
@@ -46,7 +46,7 @@ $this->load->helper('url');
                                 <button class="button is-primary is-medium is-fullwidth">Masuk</button>
                         </div>
                         <div class="field has-text-centered">
-                            <span>Belum punya akun?? <?php echo anchor('daftar','Daftar');?></span>
+                            <span>Gabung mitra?? <?php echo anchor('daftar','Daftar');?></span>
                         </div>
                     </div>
                 </form>                    

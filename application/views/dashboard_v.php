@@ -9,11 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     foreach($profile->result_array() as $dashboard) {
                         echo anchor('MainPage','<i class="material-icons">home</i>','class="button fab"');
                     ?>
-                    <label>Dashboard : <?php echo $dashboard['nama_user'];?></label>
+                    <label><?php echo $dashboard['nama_user'];?></label>
                     <div class="buttons account-btn">
                         <?php
-                        echo anchor('dashboard',"<strong>".$this->session->userdata("email_user")."</strong>", 'class="button is-primary account"');
-                        echo anchor('login/logout','<i class="material-icons">power_settings_new</i>', 'class="button is-light"');
+                        echo anchor('dashboard/profil',"<strong><i class=\"material-icons\">account_circle</i> Profil</strong>", 'class="button is-primary account"');
+                        echo anchor('logout','<i class="material-icons">power_settings_new</i>', 'class="button is-light"');
                         ?>
                     </div>
                     <hr>
