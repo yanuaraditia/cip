@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
     <body>
-        <section class="section dashboard">
+        <section class="section dashboard mitra">
             <div class="container">
                 <div class="card">
                     <?php
@@ -24,16 +24,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 echo '<li class="list-item wait" onclick="window.location=\''.base_url().'Mitra/kelola?act=checkin&id='.base64_encode($kerjaan['kd_booking']).'\'">
                                 <span class="button fab"><i class="material-icons">directions_car</i></span>
                                 <span class="nopol">'.$kerjaan['nopol_user'].' ('.$kerjaan['jml_roda_kendaraan'].' Roda)</span>
-                                <span class=>'.$kerjaan['nama_lantai'].' - '.$kerjaan['nama_slot'].'</span>
-                                <span class="tag is-warning is-medium">Konfirmasi Check-in</span>
+                                <span>'.$kerjaan['nama_lantai'].' - '.$kerjaan['nama_slot'].'</span>
+                                <span>Menunggu check-in</span>
+                                <span class="tag is-medium"><button class="button is-danger"><i class="material-icons">close</i></button></span>
                                 </li>';
                             }
                             else {
                                 echo '<li class="list-item on-park" onclick="window.location=\''.base_url().'Mitra/kelola?act=bayar&id='.base64_encode($kerjaan['kd_booking']).'\'">
                                 <span class="button fab"><i class="material-icons">check</i></span>
                                 <span class="nopol">'.$kerjaan['nopol_user'].' ('.$kerjaan['jml_roda_kendaraan'].' Roda)</span>
-                                <span class=>'.$kerjaan['nama_lantai'].' - '.$kerjaan['nama_slot'].'</span>
-                                <span class=>Sejak : '.tglIndo($kerjaan['tgl_booking']).'</span>
+                                <span>'.$kerjaan['nama_lantai'].' - '.$kerjaan['nama_slot'].'</span>
+                                <span>Sejak : '.tglIndo($kerjaan['tgl_booking']).'</span>
                                 <span class="tag is-success is-medium">Sejak : '.tglIndo($kerjaan['tgl_booking']).'</span>
                                 </li>';
                             }
