@@ -70,6 +70,7 @@ hr {
     top: -14px;
     padding: 2px 5px;
     color: #f9a602;
+    -webkit-transition: all .05s ease-in-out;
     transition: all .05s ease-in-out;
 }
 .control .input:focus {
@@ -122,6 +123,7 @@ hr {
     opacity: 0;
     transform: scale(1);
     pointer-events: none;
+    -webkit-transition: opacity 0.3s, transform 0.2s;
     transition: opacity 0.3s, transform 0.2s;
 }
 
@@ -145,6 +147,7 @@ hr {
     height: 18px;
     vertical-align: top;
     transition: border-color 0.2s, background-color 0.2s;
+    -webkit-transition: border-color 0.2s, background-color 0.2s;
 }
 
 /* Checkmark */
@@ -201,6 +204,7 @@ hr {
 .checkbox > input:active {
     opacity: 1;
     transform: scale(0);
+    -webkit-transition: transform 0s, opacity 0s;
     transition: transform 0s, opacity 0s;
 }
 
@@ -350,6 +354,7 @@ hr {
         top: 88px;
         left: 0;
         right: 0;
+        -webkit-transition: all .15s ease-in-out;
         transition: all .15s ease-in-out;
     }
     #navigation.off-canvas {
@@ -544,6 +549,7 @@ hr {
     position: relative;
     border:none;
     border:1px solid rgba(0, 0, 0, .1);
+    -webkit-transition: all .12s ease-in-out;
     transition: all .12s ease-in-out;
     border-radius: 12px;
     margin-bottom: 5px;
@@ -556,6 +562,7 @@ hr {
     background: #ffdd57;
     border-radius: 12px;
     border-color: transparent;
+    -webkit-transition: all .12s ease-in-out;
     transition: all .12s ease-in-out;
 }
 .dashboard .order-list .list-item.on-park:hover {
@@ -607,6 +614,7 @@ hr {
     color: rgba(0, 0, 0, .3);
     width: inherit;
     transition: all .05s ease-in-out;
+    -webkit-transition: all .05s ease-in-out;
 }
 .dashboard .control .input ~ .label {
     top: -24px;
@@ -666,4 +674,7 @@ hr {
     box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
     border-color:transparent;
     color:#fff;
+}
+.mitra .history .list-item span:not(:last-child) {
+    border:none;
 }
