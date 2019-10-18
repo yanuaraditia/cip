@@ -34,4 +34,8 @@ class M_dash extends CI_Model{
         $this->db->limit(5);
         return $this->db->get();
     }
+    function update_profile($id_user,$data) {
+        $this->db->where('id_user',$id_user);
+        $this->db->update('akun',$data);
+    }
 }

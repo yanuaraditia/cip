@@ -36,6 +36,16 @@ class Dashboard extends CI_Controller{
 		);
     	$this->load->view('link_rel',$data);
 		$this->load->view('user_profile');
-    	$this->load->view('footer');
+		$this->load->view('footer');
+		if($this->input->post()) {
+			$nama_baru = $this->input->post('nama');
+			$password_baru = $this->input->post('password');
+			$data = array(
+				'nama_user' => $nama_baru,
+				'password' => password_hash($password_baru,PASSWORD_DEFAULT)
+			);
+			$this->M_dash->update_profile($this->session->userdata('id_user'),$data);
+			redirect(base_url('dashboard'));
+		}
 	}
 }
