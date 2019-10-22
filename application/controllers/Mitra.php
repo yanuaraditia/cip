@@ -73,7 +73,7 @@ class Mitra extends CI_Controller{
 					redirect(base_url('Mitra'));
 					break;
 				case 'bayar':
-					$this->M_mitra->bayar($kd_booking,2);
+					$this->M_mitra->update($kd_booking,2);
 					$data = array(
 						'kd_booking' => $kd_booking,
 						'tanggal_bayar' => date('Y-m-d'),
@@ -81,19 +81,28 @@ class Mitra extends CI_Controller{
 					);
 					$this->M_mitra->tambah('transaksi',$data);
 					redirect(base_url('Mitra'));
+				case 'cancel':
+					$this->M_mitra->update($kd_booking,2);
+					$this->M_mitra->batal_book($kd_booking);
+					redirect(base_url('Mitra'));
 				break;
 			}
 		}
 	}
 	function invoice() {
-		$id = base64_decode($this->input->get('id'));
-		$invoice = $this->M_mitra->invoice($id);
-		$export = array(
-			'lokasi' => $this->M_mitra->lokasi_mitra($this->session->userdata('id_mitra')),
-			'invoice' => $invoice
-		);
-		$this->load->view('link_rel');
-		$this->load->view('invoice',$export);
-		$this->load->view('footer');
+		if($this->input->get('id')) {
+			$id = base64_decode($this->input->get('id'));
+			$invoice = $this->M_mitra->invoice($id);
+			$export = array(
+				'lokasi' => $this->M_mitra->lokasi_mitra($this->session->userdata('id_mitra')),
+				'invoice' => $invoice
+			);
+			$this->load->view('link_rel');
+			$this->load->view('invoice',$export);
+			$this->load->view('footer');
+		}
+		else {
+			redirect(base_url('Mitra'));
+		}
 	}
 }

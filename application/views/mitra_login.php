@@ -45,9 +45,6 @@ $this->load->helper('url');
                         <div class="field">
                                 <button class="button is-primary is-medium is-fullwidth">Masuk</button>
                         </div>
-                        <div class="field has-text-centered">
-                            <span>Gabung mitra?? <?php echo anchor('daftar','Daftar');?></span>
-                        </div>
                     </div>
                 </form>                    
             </div>

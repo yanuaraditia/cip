@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-    <body>
         <section class="section dashboard">
             <div class="container">
                 <div class="card">
@@ -75,4 +74,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </section>
-    </body>

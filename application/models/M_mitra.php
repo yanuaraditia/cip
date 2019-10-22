@@ -65,4 +65,8 @@ class M_mitra extends CI_Model{
     $this->db->where('transaksi.kd_booking',$kd_booking);
     return $this->db->get();
   }
+  function batal_book($kd_booking) {
+    $this->db->where('kd_booking',$kd_booking);
+    $this->db->delete('booking');
+  }
 }

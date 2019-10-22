@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Book extends CI_Controller {
     function __construct(){
         parent::__construct();
-		if($this->session->userdata('status') != "login"){
+		if($this->session->userdata('status') != "login" or $this->session->userdata('booking') == 'ada'){
 			redirect(base_url("login"));
 		}
 		else {
@@ -46,6 +46,7 @@ class Book extends CI_Controller {
 				'id_user' => $id_user
 			);
 			$this->m_book->book_confirm($data);
+			$this->session->set_userdata('booking','ada');
 			redirect(base_url()."dashboard");
 		}
 	}

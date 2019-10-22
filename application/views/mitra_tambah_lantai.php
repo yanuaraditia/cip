@@ -19,13 +19,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <h5 class="title is-5">Slot baru untuk <?php echo $lokasi->nama_lokasi;?></h5>
                     <div class="field">
                         <div class="control has-icon-right">
-                            <input class="input" type="text" name="nama" placeholder="Text input">
+                            <input class="input" type="text" name="nama" placeholder="Text input" requred>
                             <label class="label">Nama Lantai</label>
                         </div>
                     </div>
                     <div class="field">
                         <div class="control has-icon-right">
-                            <input class="input" type="number" name="number" placeholder="Text input">
+                            <input class="input" type="number" name="number" placeholder="Text input" requred>
                             <label class="label">Tarif lantai</label>
                         </div>
                     </div>
