@@ -12,8 +12,7 @@ class Book extends CI_Controller {
 			$this->load->helper('location');
 		}
 	}
-	public function index()
-	{
+	public function index(){
 		if($this->input->get('id')) {
 			$kd_lokasi = base64_decode($this->input->get('id'));
 			$data = array(
@@ -28,11 +27,10 @@ class Book extends CI_Controller {
 			$this->load->view('footer');
 		}
 		else {
-			header('location:mainpage');
+			redirect(base_url());
 		}
 	}
-	function confirm()
-	{
+	function confirm(){
 		if($this->input->get('kd')) {
 			$this->load->model('m_dash');
 			$id_user = $this->m_dash->show_me($this->session->userdata('email_user'))->result_array();

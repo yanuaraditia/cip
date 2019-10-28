@@ -7,8 +7,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="container">
             <form method="get" action="<?php echo base_url()."MainPage/cari";?>" class="field">
                 <div class="control">
-                    <input class="input is-large" type="text" name="q" placeholder="Cari lokasi parkir">
+                    <input class="input is-large" onkeyup="showResult(this.value)" type="text" name="q" placeholder="Cari lokasi parkir">
                     <button class="button" type="submit"><i class="material-icons">search_outline</i></button>
+                </div>
+                <div id="result">
                 </div>
             </form>
         </div>

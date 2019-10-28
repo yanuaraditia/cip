@@ -11,7 +11,6 @@ class Dashboard extends CI_Controller{
 			$this->load->helper('user');
 		}
 	}
- 
 	function index(){
 		$id_user = $this->session->userdata('id_user');
 		$email_user = $this->session->userdata('email_user');

@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                     <div class="field">
-                        <button class="button is-primary">Tambahkan</button>
+                        <button class="button is-primary">Ubah</button>
                     </div>
                     <?php } ?>
                     <article class="message is-warning">

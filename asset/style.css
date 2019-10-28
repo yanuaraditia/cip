@@ -238,8 +238,11 @@ hr {
 }
 
 .search .field {
-    border-radius: 100px;
+    border-radius: 12px;
     border:1px solid rgba(0, 0, 0, .1);
+}
+.search .panel-block:first-child,.search  .panel-heading:first-child,.search  .panel-tabs:first-child, .search .panel-block, .search .panel-heading, .search .panel-tabs {
+    border: none;
 }
 .search .field:hover {
     background: #fff;

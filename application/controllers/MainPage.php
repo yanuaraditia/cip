@@ -12,7 +12,7 @@ class MainPage extends CI_Controller {
     }
 	public function index()
 	{
-		$batas = 5;
+		$batas = 6;
 		$data = array(
 			'bar' => 1,
 			'list_lokasi' => $this->M_lokasi->list_lokasi($batas),
@@ -26,17 +26,17 @@ class MainPage extends CI_Controller {
 	}
 	function cari()
 	{
-		if($this->input->get('q')) {
-			$data = array(
-				'title' => 'Hasil untuk : "'.$this->input->get('q').'"',
-				'bar' => 1,
-				'list_lokasi'=> $this->M_lokasi->cari_lokasi($this->input->get('q')),
-				'jml_lokasi' => $this->M_lokasi->jml_lokasi(5)
-			);
-			$this->load->view('link_rel',$data);
-			$this->load->view('header');
-			$this->load->view('content');
-			$this->load->view('footer');
-		}
+        if ($this->input->get('q')) {
+            $search = $this->input->get('q');
+            $query = $this->M_lokasi->cari_lokasi($search);
+            foreach ($query->result_array() as $row) {
+                $wow = explode($search,$row['nama_lokasi']);
+                $wow = implode("<b class=found>".$search."</b>",$wow);
+                echo '<a class="panel-block" href="'.base_url('book?id=').base64_encode($row['kd_lokasi']).'">'.$wow.'</a>';
+            }
+        }
+        else {
+            redirect(base_url());
+        }
 	}
 }

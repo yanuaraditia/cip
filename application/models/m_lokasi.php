@@ -11,7 +11,7 @@ class M_lokasi extends CI_Model{
             else{ 
                   $posisi  = ($halaman-1) * $batas; 
             }
-            $lokasi=$this->db->get('lokasi', $posisi, $batas);
+            $lokasi=$this->db->get('lokasi', $batas, $posisi);
             return $lokasi;
       }
       function jml_lokasi($batas) {
