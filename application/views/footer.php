@@ -85,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 document.getElementById("result").innerHTML=this.responseText;
                 }
             }
-            xmlhttp.open("GET","<?php echo base_url('mainpage/cari');?>?q="+str,true);
+            xmlhttp.open("GET","<?php echo base_url('MainPage/cari');?>?q="+str,true);
             xmlhttp.send();
         }
     </script>

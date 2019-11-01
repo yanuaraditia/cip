@@ -45,12 +45,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="buttons">
                         <?php
                             if($this->session->userdata('status') == "login") {
-                                echo anchor('dashboard',"<strong>".$this->session->userdata('email_user')."</strong>",'class="button is-primary account"');
-                                echo anchor('logout',"<strong><i class=\"material-icons\">power_settings_new</i></strong>",'class="button is-light account"');
+                                echo anchor(base_url().'Dashboard',"<strong>".$this->session->userdata('email_user')."</strong>",'class="button is-primary account"');
+                                echo anchor(base_url().'logout',"<strong><i class=\"material-icons\">power_settings_new</i></strong>",'class="button is-light account"');
                             }
                             else {
-                                echo anchor('daftar','<strong>Registrasi</strong>','class="button is-primary"');
-                                echo anchor('login','<strong>Masuk</strong>','class="button is-light"');
+                                echo anchor(base_url().'Daftar','<strong>Registrasi</strong>','class="button is-primary"');
+                                echo anchor(base_url().'Login','<strong>Masuk</strong>','class="button is-light"');
                             }
                         ?>
                     </div>
