@@ -4,9 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MainPage extends CI_Controller {
 	function __construct(){
         parent::__construct();
-		if($this->session->userdata('booking') == 'ada'){
-			redirect(base_url('dashboard'));
-		}
         $this->load->model('M_lokasi');
 		$this->load->helper('location');
     }

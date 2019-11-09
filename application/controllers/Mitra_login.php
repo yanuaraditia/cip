@@ -5,6 +5,9 @@ class Mitra_login extends CI_Controller{
 		if($this->session->userdata('status') == "login"){
 			$this->session->sess_destroy();
 		}
+		elseif($this->session->userdata('status_mitra') == "login"){
+			redirect(base_url("mitra"));
+		}
 		else {
     		$this->load->model('M_mitra');
 			$this->load->helper('user');
