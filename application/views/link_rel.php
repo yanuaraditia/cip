@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="apple-mobile-web-app-title" content="House of Yanuar Aditia">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" href="https://paparkir.com/favico.png" type="image/png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <link rel="stylesheet" href="<?php echo base_url().'/asset/bulma.min.css';?>" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500|Titillium+Web:400,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url().'/asset/style.css';?>" />
 </head>
