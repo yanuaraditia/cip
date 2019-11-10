@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2019 at 08:52 AM
+-- Generation Time: Nov 10, 2019 at 02:59 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -45,9 +45,9 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id_user`, `nama_user`, `email_user`, `nopol_user`, `password`, `notelp_user`, `jml_roda_kendaraan`) VALUES
-(1423211, 'Yanuar Aditia', 'yanuaraditia@outlook.com', 'AA-3435-RD', '$2y$10$mC85TuW5RhIUhzRmLT4UnOXmFy9DGn55.lGe/6ntMuGKtJgsWO59y', '08233422323', 4),
-(1423212, 'Yanuar Aditia', 'yanuaraditia@outlook.co.id', 'ADSD', '$2y$10$g0/0KngvnV1GJprdT1IXIeKgU4HJC8sld/StR5FlbdqvEc2stJuFy', '+628224337404', 6),
-(1423213, 'Yanuar Aditia', 'yanuaraditia@outlook.as.id', 'AA 1 RW', '$2y$10$pQnvgJZUrTY8lSSF9gCmmuRpOa5j4.R.G6GqMySvzZgxM1OpwQK6G', '+628224337405', 6);
+(1423211, 'User 1', 'test1@123.com', 'AA-3435-RD', '$2y$10$y6dg4X/dNOHOiq5qRg70oOEyYsDOk1sPVQYj7UOQ1sauBYQbzIu5e', '08233422323', 4),
+(1423212, 'User 2', 'test2@123.com', 'AA-3334-RW', '$2y$10$y6dg4X/dNOHOiq5qRg70oOEyYsDOk1sPVQYj7UOQ1sauBYQbzIu5e', '+628224337404', 6),
+(1423213, 'User 3', 'test2@123.com', 'AA-1-RW', '$2y$10$y6dg4X/dNOHOiq5qRg70oOEyYsDOk1sPVQYj7UOQ1sauBYQbzIu5e', '+628224337405', 6);
 
 -- --------------------------------------------------------
 
@@ -62,15 +62,6 @@ CREATE TABLE `booking` (
   `status` int(1) DEFAULT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `booking`
---
-
-INSERT INTO `booking` (`kd_booking`, `kd_slot`, `tgl_booking`, `status`, `id_user`) VALUES
-(7, 3, '2019-08-02', 2, 1423212),
-(3423456, 2, '2019-08-02', 2, 1423213),
-(3423459, 1, '2019-10-09', 1, 1423213);
 
 -- --------------------------------------------------------
 
@@ -93,7 +84,8 @@ CREATE TABLE `lantai` (
 INSERT INTO `lantai` (`kd_lantai`, `nama_lantai`, `kelas_lantai`, `tarif_lantai`, `kd_lokasi`) VALUES
 (1, 'Basement', 1, 2000, 1),
 (2, 'Lantai 3', 1, 40000, 1),
-(3, 'Basement', 1, 10000, 2);
+(3, 'Basement', 1, 10000, 2),
+(5, 'Parkir Utara', 1, 40000, 2);
 
 -- --------------------------------------------------------
 
@@ -115,12 +107,13 @@ CREATE TABLE `lokasi` (
 --
 
 INSERT INTO `lokasi` (`kd_lokasi`, `nama_lokasi`, `lttd_lokasi`, `lgtd_lokasi`, `alamat_lokasi`, `notelp_lokasi`) VALUES
-(1, 'Taman Parkir Abu Bakar Ali', '-7.7900392', '110.3654116', 'Jl. Abu Bakar Ali No.1, Suryatmajan, Kec. Danurejan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55213', ''),
-(2, 'Universitas Amikom Yogyakarta', '-7.7601813', '110.4083464', 'Jl. Abu Bakar Ali No.1, Suryatmajan, Kec. Danurejan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55213', ''),
+(1, 'Taman Parkir Abu Bakar Ali', '-7.7900392', '110.3654116', 'Jl. Abu Bakar Ali No.1, Suryatmajan, Kec. Danurejan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55213', '02742923937'),
+(2, 'Universitas Amikom Yogyakarta', '-7.7601813', '110.4083464', 'Jl. Abu Bakar Ali No.1, Suryatmajan, Kec. Danurejan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55213', '02742923937'),
 (3, 'Lippo Plaza Jogja', '-7.7839366', '110.3904249', 'Jl. Laksda Adisucipto No.32-34, Demangan, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55221', '02742923937'),
-(4, 'Ambarrukmo Plaza', '-7.782948', '110.3990213', 'Jl. Laksda Adisucipto No.80, Ambarukmo, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281', '02744331000'),
-(5, 'Ambarrukmo Plaza', '-7.782948', '110.3990213', 'Jl. Laksda Adisucipto No.80, Ambarukmo, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281', '02744331000'),
-(6, 'Ambarrukmo Plaza', '-7.782948', '110.3990213', 'Jl. Laksda Adisucipto No.80, Ambarukmo, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281', '02744331000');
+(4, 'Sample 1', '-7.782948', '110.3990213', 'Jl. Laksda Adisucipto No.80, Ambarukmo, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281', '02744331000'),
+(5, 'Sample 2', '-7.782948', '110.3990213', 'Jl. Laksda Adisucipto No.80, Ambarukmo, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281', '02744331000'),
+(6, 'Ambarrukmo Plaza', '-7.782948', '110.3990213', 'Jl. Laksda Adisucipto No.80, Ambarukmo, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281', '02744331000'),
+(8, 'Nusa Indah', '-7.7601813', '110.4083464', 'Jl. Laksda Adisucipto No.32-34, Demangan, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55221', '02742923937');
 
 -- --------------------------------------------------------
 
@@ -141,7 +134,8 @@ CREATE TABLE `mitra` (
 --
 
 INSERT INTO `mitra` (`id_mitra`, `nama_mitra`, `kd_lokasi`, `email_mitra`, `password`) VALUES
-(1, 'Eko Patrio', 1, 'ekopatrio@123.com', '$2y$10$pQnvgJZUrTY8lSSF9gCmmuRpOa5j4.R.G6GqMySvzZgxM1OpwQK6G');
+(1, 'Eko Patrio', 1, 'mitra@123.com', '$2y$10$pQnvgJZUrTY8lSSF9gCmmuRpOa5j4.R.G6GqMySvzZgxM1OpwQK6G'),
+(2, 'Eko Sumatrio', 5, 'sumatrio@gmail.com', '$2y$10$38Ip8LRHA6Xak3nYBh20fe9o7g.96fLrXNUj.6A90udgJMbKN7nlS');
 
 -- --------------------------------------------------------
 
@@ -155,8 +149,21 @@ CREATE TABLE `reset` (
   `tanggal_request` date NOT NULL,
   `tanggal_update` date NOT NULL,
   `reset_key` varchar(255) NOT NULL,
-  `staus` int(11) NOT NULL
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reset`
+--
+
+INSERT INTO `reset` (`kd_reset`, `id_user`, `tanggal_request`, `tanggal_update`, `reset_key`, `status`) VALUES
+(44, 1423213, '2019-10-15', '0000-00-00', 'gJfZ2soFkNGaQV4hei0XITELHj7B8bPmOv3l95cuCRyzDpWAxU', 0),
+(45, 1423213, '2019-10-15', '0000-00-00', 'rVznDUdYsMKTgJR5CWxeaAbjE6t97Pv8IS1Q3NOlLumipkofXc', 0),
+(46, 1423213, '2019-10-15', '0000-00-00', 'xiEtdOaeoISLlDhCVTkHF1ZrfwX0qczp6ABs5NvjKUWu37y28M', 0),
+(47, 1423213, '2019-10-15', '2019-10-15', 'gynXYmATjQWJtZsizUpKbBFOE1cP9L06qaCxIfDr7wVudNRk38', 1),
+(48, 1423213, '2019-10-15', '2019-10-15', '2NnU9WGSLZlBP7docJTmhz8t3rFbXDAkp1q5KeuQ6VIifjMHg0', 1),
+(49, 1423213, '2019-10-15', '2019-10-15', '8V9P2zsFmBaUAjb3hdgNopxW6qMJuyvwnK1LY4CilkX0GfRErH', 1),
+(50, 1423213, '2019-10-15', '0000-00-00', 'r9kUOH8IARYhD2EZ576vqdyxJwtTifSLGanseCgoXMu4PQpBzc', 0);
 
 -- --------------------------------------------------------
 
@@ -178,7 +185,8 @@ INSERT INTO `slot` (`kd_slot`, `nama_slot`, `kd_lantai`) VALUES
 (1, 'B1', 1),
 (2, 'B2', 1),
 (3, 'L3', 2),
-(4, 'B3', 1);
+(4, 'B3', 1),
+(6, 'A1', 5);
 
 -- --------------------------------------------------------
 
@@ -193,14 +201,6 @@ CREATE TABLE `transaksi` (
   `tanggal_bayar` date NOT NULL,
   `id_mitra` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`kd_transaksi`, `kd_booking`, `total_bayar`, `tanggal_bayar`, `id_mitra`) VALUES
-(3326, 7, 880000, '2019-08-23', 1),
-(3327, 3423456, 44000, '2019-08-23', 1);
 
 --
 -- Indexes for dumped tables
@@ -276,43 +276,43 @@ ALTER TABLE `akun`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `kd_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3423460;
+  MODIFY `kd_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3423466;
 
 --
 -- AUTO_INCREMENT for table `lantai`
 --
 ALTER TABLE `lantai`
-  MODIFY `kd_lantai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `kd_lantai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `lokasi`
 --
 ALTER TABLE `lokasi`
-  MODIFY `kd_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `kd_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `mitra`
 --
 ALTER TABLE `mitra`
-  MODIFY `id_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_mitra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reset`
 --
 ALTER TABLE `reset`
-  MODIFY `kd_reset` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `kd_reset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `slot`
 --
 ALTER TABLE `slot`
-  MODIFY `kd_slot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `kd_slot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `kd_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3328;
+  MODIFY `kd_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3331;
 
 --
 -- Constraints for dumped tables
