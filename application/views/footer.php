@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?> 
     <footer class="section">
         <div class="container">
-            <p><b>Indonesia</b>: Amikom Business Park,<br>Universitas Amikom Yogyakarta, Basement, Yogyakarta 55598</p>
+            <p><b>Indonesia</b>: Condongcatur, Depok, Sleman, Yogyakarta 55598</p>
             <hr>
             <p><b>Copyright &copy; 2020 by Sarana Teknotama</b></p>
         </div>
