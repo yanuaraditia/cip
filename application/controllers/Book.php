@@ -31,8 +31,8 @@ class Book extends CI_Controller {
 		}
 	}
 	function confirm(){
-		$bookcek = $this->m_book->book_check()->num_rows();
-		if($bookcek>0) {
+		$bookcek = $this->m_book->book_check($this->session->userdata('id_user'))->num_rows();
+		if($bookcek<1) {
 			if($this->input->get('kd')) {
 				$this->load->model('m_dash');
 				$id_user = $this->m_dash->show_me($this->session->userdata('email_user'))->result_array();

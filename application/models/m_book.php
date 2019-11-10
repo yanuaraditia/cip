@@ -21,7 +21,7 @@ class M_book extends CI_Model{
             $this->db->select('id_user');
             $this->db->from('booking');
             $this->db->where(array(
-                  'status != 2',
+                  'status != ' => 2,
                   'id_user' => $id_user 
             ));
             return $this->db->get();
