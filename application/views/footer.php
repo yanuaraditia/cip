@@ -10,8 +10,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </footer>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="import bulmaCalendar from '/node_modules/bulma-extensions/bulma-calendar/dist/bulma-calendar.min.js'"
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script>
     $(document).ready(function() {
     $(".navbar-burger").click(function() {
